@@ -37,6 +37,11 @@ class Product
      */
     private $warranty;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $user;
+
 
 
     public function getId(): ?int
@@ -88,6 +93,18 @@ class Product
     public function setWarranty(string $warranty): self
     {
         $this->warranty = $warranty;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -27,6 +27,16 @@ class Repair
      */
     private $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Product::class)
+     */
+    private $product;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +62,30 @@ class Repair
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }
