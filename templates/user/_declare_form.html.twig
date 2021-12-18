@@ -1,0 +1,32 @@
+<div class="form">
+    {{ form_start(declareForm) }}
+    <div class="input-group mb-3">
+        {{ form_widget(declareForm.imei, {'attr': {'class': 'form-control', 'placeholder': 'N° IMEI', 'aria-label': 'N° IMEI', 'aria-describedby': 'basic-addon2'}}) }}
+        <span id="addon-wrapping">{{ form_label(declareForm.imei, 'N° IMEI', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+    </div>
+    <div class="input-group mb-3">
+        <span id="addon-wrapping">{{ form_label(declareForm.model, 'Modèle', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+        {{ form_widget(declareForm.model, {'attr': {'class': 'form-control', 'placeholder': 'model', 'aria-label': 'model', 'aria-describedby': 'addon-wrapping'}}) }}
+    </div>
+    <div class="input-group mb-3">
+        {{ form_widget(declareForm.purchase_date, {'attr': {'class': 'form-control', 'placeholder': 'date achat', 'aria-label': 'date achat', 'aria-describedby': 'basic-addon2'}}) }}
+        <span id="addon-wrapping">{{ form_label(declareForm.purchase_date, 'date achat', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+    </div>
+
+
+
+{#    <div class="input-group mb-3">#}
+{#        <span id="addon-wrapping">{{ form_label(declareForm.description, 'Panne', {'label_attr': {'class': 'input-group-text'}}) }}</span>#}
+{#        {{ form_widget(declareForm.description, {'attr': {'class': 'form-control', 'placeholder': 'panne', 'aria-label': 'panne', 'aria-describedby': 'addon-wrapping'}}) }}#}
+{#    </div>#}
+
+    <div class="input-group mb-3">
+        {{ form_widget(declareForm.warranty, {'attr': {'class': 'form-control', 'placeholder': 'garantie', 'aria-label': 'garantie', 'aria-describedby': 'basic-addon2'}}) }}
+        <span id="addon-wrapping">{{ form_label(declareForm.warranty, 'Joindre votre garantie', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+    </div>
+
+    <div class="col-12">
+        <button class="btn-primary" type="submit">Valider</button>
+    </div>
+    {{ form_end(declareForm) }}
+</div>
