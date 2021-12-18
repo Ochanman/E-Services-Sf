@@ -1,19 +1,84 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block css %}
+        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
+    {% endblock css %}
+    <link
+            rel="icon"
+            type="image/png"
+            href="{{ asset('img/logo/logo_small_icon_only_inverted.png') }}"
+    />
+    <title>E-Services</title>
+</head>
+<body>
+<header class="flex">
+    <div class="logo">
+        <img
+                class="logoES"
+                src="{{ asset('img/logo/logoh_small.png') }}"
+                alt="Le logo de E-Services"
+        />
+    </div>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    <nav class="flex navigation">
+        <ul class="flex main-menu">
+            <li class="main-menu-element">
+                <a href="{{ path('home') }}">ACCUEIL</a>
+            </li>
+            <li class="main-menu-element">
+                <a href="#middleBottom">ACTIVER GARANTIE</a>
+            </li>
+            <li class="main-menu-element">
+{#                <a href="{{ path('user_declare') }}">DECLARER PANNE</a>#}
+            </li>
+            <input
+                    class="main-menu-element btn-grad"
+                    type="button"
+                    value="CONNEXION"
+            />
+        </ul>
+    </nav>
+</header>
+
+
+
+    {% block main %}{% endblock main %}
+
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+<footer class="footer">
+    <div class="imgFooter">
+        <img
+                class="phones"
+                src="{{ asset('img/footer.png') }}"
+                alt="image de telephones"
+        />
+    </div>
+    <div class="flex contentFooter">
+        <div class="logoFooter flex">
+            <img class="imgLogoFooter" src="{{ asset('img/logo/logo_small.png') }}" alt="logo entreprise" />
+        </div>
+        <div class="flex contentContact">
+            <h3>CONTACTEZ-NOUS</h3>
+            <span
+            >Nous serions ravis d'échanger avec vous autour de vos enjeux<br />et
+            vos problématiques.</span
+            >
+            <span>david.godignon@eservices.fr <br />06 00 00 00 00 </span
+            ><a href="#">formulaire de contact</a>
+        </div>
+    </div>
+</footer>
+
+<script src="{{ asset('js/index.js') }}"></script>
+</body>
 </html>
+

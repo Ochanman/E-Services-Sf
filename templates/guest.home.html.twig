@@ -1,0 +1,103 @@
+{# je fais appel a la fonction extends qui me permet d inserer le contenu venant de base.html.twig #}
+{% extends "base.html.twig" %}
+
+{# j'insere le block main qui permet de mettre du contenu dans le main de ma page home #}
+{# dans ce block la boucle for va permettre d'afficher tout le contenu du $array selectionné dans GuestPageController.php #}
+{% block main %}
+    <main class="flex">
+        <section id="container">
+            <div id="video">
+                <video autoplay loop muted>
+                    <source src="{{ asset('img/iphone2.mp4') }}" />
+                </video>
+                <div class="title">
+                    <h1 class="h1Video">LE SAV QUI FAIT LA DIFFÉRENCE</h1>
+                    <h2 class="h2Video">
+                        Notre différence ? Une question de confiance.
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <article class="article flex">
+                <div class="titleImg">
+                    <h2>NOTRE DIFFÉRENCE ?</h2>
+                    <div class="divImgFix">
+                        <img
+                                class="imgFix"
+                                src="{{ asset('img/iphone-6-ifixit.jpg' ) }}"
+                                alt=""
+                        />
+                    </div>
+                </div>
+                <p>
+                    La confiance. Avec E-Services vous avez l'oeil sur tout. Suivez en
+                    temps réel chaque étape de sa prise en charge de la réception à
+                    l'expédition. Une inquiétude, un oubli ? Communiquez avec nos
+                    équipes via votre espace SAV et soyez rassuré.
+                </p>
+            </article>
+        </section>
+        <section id="content" class="flex">
+            <div class="bannerR"></div>
+            <div class="bannerL"></div>
+            <div class="contentBtnL flex">
+                <a class="btn btnTL" href="{{ path('tutos') }}">AIDE EN VIDEO</a>
+
+                <a class="btn btnBL" href="">ACITVER GARANTIE</a>
+            </div>
+            <div class="contentBtnR flex">
+{#                <a class="btn btnTR" href="{{ path('user_declare') }}">DÉCLAREZ MA PANNE</a>#}
+
+                <a class="btn btnBR" href="">SUIVRE MON DOSSIER</a>
+            </div>
+        </section>
+        <section>
+            <article class="article flex">
+                <p>
+                    Découvrez ici nos tutoriels de réparation qui vous permettront de
+                    réparer votre smartphone. Ces guides de réparation ont été créés
+                    pour vos iPhone: perte d'autonomie de la batterie, écran cassé,
+                    vitre tactile brisée, dysfonctionnement des boutons mais aussi
+                    appareil photo défectueux ou problème de charge.
+                </p>
+
+                {% for tuto in tutos %}
+                    <div class="hidden-tuto" data-tuto-image={{ tuto.filename }}></div>
+                {% endfor %}
+
+
+                <div class="titleImg">
+                    <h2>Accés au tutos vidéos de SOSav</h2>
+                    <a href="{{ path('tutos') }}">
+                        <div class="screen">
+                            <img src="{{ asset('img/iphoneScreen.png') }}" alt="" />
+
+                            <div class="slider">
+                                <div class="slide">
+                                    <img
+                                            src="{{ asset('img/tuto/blocked.png') }}"
+                                            class="slideImg"
+                                            alt="..."
+                                    />
+                                </div>
+                            </div></div
+                        ></a>
+                </div>
+            </article>
+        </section>
+        <section class="flex follow">
+            <h2>SUIVI DE PRISE EN CHARGE</h2>
+            <p>
+                Pour un suivi rapide et instantané de toutes les étapes de la
+                réparation de votre appareil, connectez-vous à votre espace SAV.
+            </p>
+            <input
+                    class="btnFollow btn-grad"
+                    type="button"
+                    value="SUIVRE MON APPAREIL"
+            />
+        </section>
+    </main>
+{% endblock main %}
