@@ -4,19 +4,27 @@ namespace App\Form;
 
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class DeclareType extends AbstractType
+class ProductType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('model')
             ->add('imei')
-            ->add('purchase_date')
-            ->add('warranty')
-            ->add('user')
+            ->add('purchase_date', DateType::class, [
+                'widget' => 'single_text'
+            ])
+            ->add('warranty', FileType::class, [
+                'mapped' => false,
+                'required' => false,
+            ])
+            ->add('description')
+            ->remove('user')
         ;
     }
 

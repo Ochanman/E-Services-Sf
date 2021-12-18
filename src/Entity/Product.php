@@ -38,11 +38,19 @@ class Product
     private $warranty;
 
     /**
+     * @ORM\Column(type="string", length=610)
+     */
+    private $description;
+
+    /**
      * @ORM\ManyToOne(targetEntity=User::class)
      */
     private $user;
 
-
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $number;
 
     public function getId(): ?int
     {
@@ -97,6 +105,18 @@ class Product
         return $this;
     }
 
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
     public function getUser(): ?User
     {
         return $this->user;
@@ -108,6 +128,16 @@ class Product
 
         return $this;
     }
+    public function getNumber(): ?string
+    {
+        return $this->number;
+    }
 
+    public function setNumber(string $number): self
+    {
+        $this->number = $number;
+
+        return $this;
+    }
 
 }

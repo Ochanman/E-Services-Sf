@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Controller\user;
-use App\Entity\Repair;
+
 use App\Entity\Product;
-use App\Form\DeclareType;
+
+use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use App\Repository\RepairRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,11 +19,11 @@ class UserPageController extends AbstractController
      *@Route("/declare", name="user_declare")
      */
 
-    public function product(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager, ProductRepository $ProductRepository)
+    public function declare(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager, ProductRepository $ProductRepository)
     {
 
-        $product = new product();
-        $form = $this->createForm(DeclareType::class, $product);
+        $declare = new product();
+        $form = $this->createForm(ProductType::class, $declare);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // gestion de l'upload d'image
@@ -44,14 +45,28 @@ class UserPageController extends AbstractController
                 );
 
                 // 5) enregistrer le nom du fichier dans la colonne coverFilename
-                $product->setWarranty($newFilename);
+                $declare->setWarranty($newFilename);
             }
 
+            // faire une requête dans la table des pannes, pour récupérer la dernière panne7
+            $lastfailure = $ProductRepository->findOneBy([], ['id' => 'DESC']);
+            // si y'en a pas, tu créé le numero ($number) de la première panne à la main str_pad (000001)
+            if (!$lastfailure) {
 
+                $number =str_pad(1, 6, "0", STR_PAD_LEFT);
+            } else {
+                $number = (int)$lastfailure->getNumber();
+                $number += 1;
+                $number =str_pad($number, 6, "0", STR_PAD_LEFT);
+            }
+            // sinon tu récupère le numéro de la dernière panne, tu l'incrémente de 1 : $number
+
+            // tu ajoutes à ta panne le numéro
+            $declare->setNumber($number);
 
 
                 // cette classe permet de préparer sa sauvegarde en bdd
-            $entityManager->persist($product);
+            $entityManager->persist($declare);
 
             // cette classe permet de génèrer et éxecuter la requête SQL
             $entityManager->flush();
@@ -65,5 +80,7 @@ class UserPageController extends AbstractController
 
 
     }
+
+
 
 }

@@ -15,10 +15,10 @@
 
 
 
-{#    <div class="input-group mb-3">#}
-{#        <span id="addon-wrapping">{{ form_label(declareForm.description, 'Panne', {'label_attr': {'class': 'input-group-text'}}) }}</span>#}
-{#        {{ form_widget(declareForm.description, {'attr': {'class': 'form-control', 'placeholder': 'panne', 'aria-label': 'panne', 'aria-describedby': 'addon-wrapping'}}) }}#}
-{#    </div>#}
+    <div class="input-group mb-3">
+        <span id="addon-wrapping">{{ form_label(declareForm.description, 'Panne', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+        {{ form_widget(declareForm.description, {'attr': {'class': 'form-control', 'placeholder': 'panne', 'aria-label': 'panne', 'aria-describedby': 'addon-wrapping'}}) }}
+    </div>
 
     <div class="input-group mb-3">
         {{ form_widget(declareForm.warranty, {'attr': {'class': 'form-control', 'placeholder': 'garantie', 'aria-label': 'garantie', 'aria-describedby': 'basic-addon2'}}) }}
