@@ -71,7 +71,7 @@ header {
   color: rgb(163, 153, 224);
 }
 /* SEPARATION DES ELEMENTS DU MENU PAR UN BORDER SAUF LE DERNIER */
-.main-menu .main-menu-element:not(:nth-last-child(-n + 2)) {
+.main-menu .main-menu-element:not(:last-child) {
   border-right: 1px solid #a399e0;
 }
 .btn-grad {
@@ -94,7 +94,9 @@ header {
   border-radius: 10px;
   display: block;
   min-width: 120px;
+  padding: 0 30px;
   height: 30px;
+  border: 1px solid black;
 }
 
 .btn-grad:hover {

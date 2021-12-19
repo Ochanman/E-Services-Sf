@@ -35,13 +35,7 @@ class GuestPageController extends AbstractController
 
 
     }
-/**
-* @Route("test", name="test")
-*/
-public function test()
-{
-    return $this->render("guest.test.html.twig");
-}
+
 
 
 
