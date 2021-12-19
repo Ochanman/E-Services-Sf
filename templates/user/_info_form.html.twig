@@ -1,0 +1,41 @@
+<div class="form">
+    {{ form_start(infoForm) }}
+    <div class="input-group mb-3">
+        {{ form_widget(infoForm.firstname, {'attr': {'class': 'form-control', 'placeholder': 'prenom', 'aria-label': 'prenom', 'aria-describedby': 'basic-addon2'}}) }}
+        <span id="addon-wrapping">{{ form_label(infoForm.firstname, 'prenom', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+    </div>
+    <div class="input-group mb-3">
+        <span id="addon-wrapping">{{ form_label(infoForm.lastname, 'nom', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+        {{ form_widget(infoForm.lastname, {'attr': {'class': 'form-control', 'placeholder': 'nom', 'aria-label': 'nom', 'aria-describedby': 'addon-wrapping'}}) }}
+    </div>
+    <div class="input-group mb-3">
+        {{ form_widget(infoForm.address, {'attr': {'class': 'form-control', 'placeholder': 'adresse', 'aria-label': 'adresse', 'aria-describedby': 'basic-addon2'}}) }}
+        <span id="addon-wrapping">{{ form_label(infoForm.address, 'adresse', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+    </div>
+
+
+
+    <div class="input-group mb-3">
+        <span id="addon-wrapping">{{ form_label(infoForm.additional_address, 'completement adresse', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+        {{ form_widget(infoForm.additional_address, {'attr': {'class': 'form-control', 'placeholder': 'completement adresse', 'aria-label': 'completement adresse', 'aria-describedby': 'addon-wrapping'}}) }}
+    </div>
+
+    <div class="input-group mb-3">
+        {{ form_widget(infoForm.zipcode, {'attr': {'class': 'form-control', 'placeholder': 'code postal', 'aria-label': 'code postal', 'aria-describedby': 'basic-addon2'}}) }}
+        <span id="addon-wrapping">{{ form_label(infoForm.zipcode, 'code postal', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+    </div>
+    <div class="input-group mb-3">
+        <span id="addon-wrapping">{{ form_label(infoForm.city, 'ville', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+        {{ form_widget(infoForm.city, {'attr': {'class': 'form-control', 'placeholder': 'ville', 'aria-label': 'ville', 'aria-describedby': 'addon-wrapping'}}) }}
+    </div>
+
+    <div class="input-group mb-3">
+        {{ form_widget(infoForm.phone, {'attr': {'class': 'form-control', 'placeholder': 'telephone', 'aria-label': 'telephone', 'aria-describedby': 'basic-addon2'}}) }}
+        <span id="addon-wrapping">{{ form_label(infoForm.phone, 'telephone', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+    </div>
+
+
+
+
+    <div class="col-12">
+        <button class="btn-primary" type="submit">Valider</button>
