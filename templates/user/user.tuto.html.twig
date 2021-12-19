@@ -1,0 +1,35 @@
+{# je fais appel a la fonction extends qui me permet d inserer le contenu venant de base.html.twig #}
+{% extends "user/base.html.twig" %}
+
+{# j'insere le block main qui permet de mettre du contenu dans le main de ma page home #}
+{# dans ce block la boucle for va permettre d'afficher tout le contenu du $array selectionné dans GuestPageController.php #}
+{% block main %}
+
+
+
+
+        <section class="tutotop">
+            <h2>DÉCOUVREZ LES TUTOS DE SOSav</h2>
+            <p>
+                E-Services vous donne les clés pour réparer vous-mêmes vos Iphones en
+                vidéo
+            </p>
+            <h3>DERNIERS TUTOS VIDÉOS</h3>
+        </section>
+    <section class="flex tutovideo">
+    {% for tuto in tutos %}
+
+    <div class="contentbox">
+        <div class="box">
+            <a
+                    href="#"
+                    onclick="Popup=window.open('{{ tuto.pathvideo }}','Popup','toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,width=560,height=315,left=500 top=300');return false;"
+            ><img class="screen" src="{{ asset('img/tuto/'~tuto.filename) }}" alt=""
+                /></a>
+        </div>
+        <p>{{ tuto.title }}</p>
+    </div>
+
+    {% endfor %}
+    </section>
+{% endblock main %}

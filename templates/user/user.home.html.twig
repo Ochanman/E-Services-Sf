@@ -1,5 +1,5 @@
 {# je fais appel a la fonction extends qui me permet d inserer le contenu venant de base.html.twig #}
-{% extends "base.html.twig" %}
+{% extends "user/base.html.twig" %}
 
 {# j'insere le block main qui permet de mettre du contenu dans le main de ma page home #}
 {# dans ce block la boucle for va permettre d'afficher tout le contenu du $array selectionné dans GuestPageController.php #}
@@ -43,14 +43,14 @@
             <div class="bannerR"></div>
             <div class="bannerL"></div>
             <div class="contentBtnL flex">
-                <a class="btn btnTL" href="{{ path('tutos') }}">AIDE EN VIDEO</a>
+                <a class="btn btnTL" href="{{ path('user_tutos') }}">AIDE EN VIDEO</a>
 
-                <a class="btn btnBL" href="{{ path('tutos') }}">ACITVER GARANTIE</a>
+                <a class="btn btnBL" href="">ACITVER GARANTIE</a>
             </div>
             <div class="contentBtnR flex">
-                <a class="btn btnTR" href="{{ path('login') }}">DÉCLAREZ MA PANNE</a>
+                <a class="btn btnTR" href="{{ path('user_declare') }}">DÉCLAREZ MA PANNE</a>
 
-                <a class="btn btnBR" href="{{ path('login') }}">SUIVRE MON DOSSIER</a>
+                <a class="btn btnBR" href="">SUIVRE MON DOSSIER</a>
             </div>
         </section>
         <section>
@@ -70,7 +70,7 @@
 
                 <div class="titleImg">
                     <h2>Accés au tutos vidéos de SOSav</h2>
-                    <a href="{{ path('tutos') }}">
+                    <a href="{{ path('user_tutos') }}">
                         <div class="screen">
                             <img src="{{ asset('img/iphoneScreen.png') }}" alt="" />
 
