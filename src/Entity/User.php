@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @ORM\Id
@@ -18,126 +20,107 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $lastname;
+    private $email;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="json")
      */
-    private $firstname;
+    private $roles = [];
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @var string The hashed password
+     * @ORM\Column(type="string")
      */
-    private $phone;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $address;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $additional_address;
-
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $zipcode;
-
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $city;
+    private $password;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getLastname(): ?string
+    public function getEmail(): ?string
     {
-        return $this->lastname;
+        return $this->email;
     }
 
-    public function setLastname(string $lastname): self
+    public function setEmail(string $email): self
     {
-        $this->lastname = $lastname;
+        $this->email = $email;
 
         return $this;
     }
 
-    public function getFirstname(): ?string
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
     {
-        return $this->firstname;
+        return (string) $this->email;
     }
 
-    public function setFirstname(string $firstname): self
+    /**
+     * @deprecated since Symfony 5.3, use getUserIdentifier instead
+     */
+    public function getUsername(): string
     {
-        $this->firstname = $firstname;
+        return (string) $this->email;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }
 
-    public function getPhone(): ?string
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
     {
-        return $this->phone;
+        return $this->password;
     }
 
-    public function setPhone(string $phone): self
+    public function setPassword(string $password): self
     {
-        $this->phone = $phone;
+        $this->password = $password;
 
         return $this;
     }
 
-    public function getAddress(): ?string
+    /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
     {
-        return $this->address;
+        return null;
     }
 
-    public function setAddress(string $address): self
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
     {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    public function getAdditionalAddress(): ?string
-    {
-        return $this->additional_address;
-    }
-
-    public function setAdditionalAddress(?string $additional_address): self
-    {
-        $this->additional_address = $additional_address;
-
-        return $this;
-    }
-
-    public function getZipcode(): ?string
-    {
-        return $this->zipcode;
-    }
-
-    public function setZipcode(string $zipcode): self
-    {
-        $this->zipcode = $zipcode;
-
-        return $this;
-    }
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
-
-        return $this;
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }

@@ -42,10 +42,7 @@ class Product
      */
     private $description;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class)
-     */
-    private $user;
+
 
     /**
      * @ORM\Column(type="string", length=10)
@@ -117,17 +114,7 @@ class Product
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
 
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
     public function getNumber(): ?string
     {
         return $this->number;
