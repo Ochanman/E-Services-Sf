@@ -8,7 +8,7 @@ elements.forEach(element => {
   images.push(image);
 });
 
-console.log(images);
+
 
 const bannerR = document.querySelector(".bannerR");
 const bannerL = document.querySelector(".bannerL");
@@ -17,7 +17,7 @@ const btnBL = document.querySelector(".btnBL");
 const btnTR = document.querySelector(".btnTR");
 const btnBR = document.querySelector(".btnBR");
 const slideImg = document.querySelector(".slideImg")
-const contentSlide = document.querySelector(".slide")
+
 const pathImg = "img/tuto/";
 
 window.addEventListener("scroll", (e) => {

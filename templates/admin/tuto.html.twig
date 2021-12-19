@@ -1,0 +1,14 @@
+{#je fais appel a la fonction extends qui me permet d inserer le contenu venant de base.html.twig#}
+{% extends "admin/base.html.twig" %}
+
+{# j'insere le block metatitle mais fait appel a la place du metatitle par defaut le metatitle "Votre livre"   #}
+{% block metatitle %}
+    Votre tuto
+{% endblock metatitle %}
+
+
+{# j'insere le block main qui permet de mettre du contenu dans le main de ma page book   #}
+{% block main %}
+    {# j'insere mon include de mon fichier _book.html.twig #}
+    {% include "admin/_tuto.html.twig" %}
+{% endblock main %}
