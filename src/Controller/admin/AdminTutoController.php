@@ -27,7 +27,7 @@ class AdminTutoController extends AbstractController
         $tuto = $tutoRepository->find($id);
 
 //je cree une variable article qui renvoi a twing la partie de tableau comportant l'id via la methode render
-        return $this->render("admin/tuto.html.twig", ["tuto" => $tutoRepository]);
+        return $this->render("admin/tuto.html.twig", ["tuto" => $tuto]);
 
     }
 

@@ -33,6 +33,8 @@ class UserInfoController extends AbstractController
         //  avec la methode isSubmitted je verifie si le formulaire a été soumis et avec la methode isValid verifie sa validité
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $user->setRoles(["ROLE_USER"]);
+            
             // cette classe permet de préparer sa sauvegarde en bdd
             $entityManager->persist($user);
 
