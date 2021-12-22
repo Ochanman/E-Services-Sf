@@ -49,6 +49,11 @@ class Product
      */
     private $number;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="product")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,6 +128,18 @@ class Product
     public function setNumber(string $number): self
     {
         $this->number = $number;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

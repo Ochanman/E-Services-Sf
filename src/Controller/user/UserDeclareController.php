@@ -15,16 +15,19 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class UserDeclareController extends AbstractController
 {
     /**
-     *@Route("/user/declare", name="user_declare")
+     *@Route("/user/declare/{id}", name="user_declare")
      */
 
-    public function declare(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager, ProductRepository $ProductRepository)
+    public function declare($id, Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager, ProductRepository $ProductRepository)
     {
-
+        $user = $this->getUser();
         $declare = new product();
         $form = $this->createForm(ProductType::class, $declare);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $declare->setUser($user);
+
             // gestion de l'upload d'image
             // 1) récupérer le fichier uploadé
             $warrantyFile = $form->get('warranty')->getData();

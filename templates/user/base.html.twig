@@ -33,7 +33,7 @@
                 <a href="{{ path('user_info_update', {'id': app.user.id}) }}">MON COMPTE</a>
             </li>
             <li class="main-menu-element">
-                <a href="{{ path('user_declare') }}">DECLARER PANNE</a>
+                <a href="{{ path('user_declare', {'id': app.user.id}) }}">DECLARER PANNE</a>
             </li>
 
             <a class="btn-grad" href="{{ path('login') }}">SE DECONNECTER</a>
