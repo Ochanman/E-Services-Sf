@@ -19,13 +19,13 @@
                     <div class="trackTopTitle">DÉCLARATION DE PANNE</div>
                 </div>
                 <div class="flexTrack trackName">
-                    <div class="trackNameName">David Godignon</div>
-                    <div class="trackNameEmail">ochanman@live.fr</div>
+                    <div class="trackNameName">{{ app.user.firstname }} {{ app.user.lastname }}</div>
+                    <div class="trackNameEmail">{{ app.user.email }}</div>
                 </div>
                 <div class="flexTrack trackInfo">
-                    <div class="trackInfoPhone">0556357856</div>
-                    <div class="trackInfoAddress">40 route de pauillac</div>
-                    <div class="trackInfoCity">33460 Soussans</div>
+                    <div class="trackInfoPhone">{{ app.user.phone }}</div>
+                    <div class="trackInfoAddress">{{ app.user.address }} {{ app.user.additionaladdress }}</div>
+                    <div class="trackInfoCity">{{ app.user.zipcode }} {{ app.user.city }}</div>
                 </div>
                 <div class="flexTrack trackPhone">
                     <div class="trackPhoneModel">Iphonec 6s</div>
