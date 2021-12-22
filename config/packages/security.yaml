@@ -6,6 +6,9 @@ security:
         # à dupliquer
         App\Entity\User:
             algorithm: auto
+        App\Entity\Admin:
+            algorithm: auto
+
 
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
@@ -15,6 +18,11 @@ security:
             entity:
                 class: App\Entity\User
                 property: email
+        app_admin_provider:
+            entity:
+                class: App\Entity\Admin
+                property: email
+        # used to reload user from session & other features (e.g. switch_user)
         
     firewalls:
         dev:
@@ -25,13 +33,24 @@ security:
             logout:
                 path: app_logout
             form_login:
-                default_target_path: user_declare
+                default_target_path: user_home
 
                 # "login" is the name of the route created previously
                 login_path: login
                 check_path: login
             lazy: true
             provider: app_user_provider
+        mainadmin:
+            logout:
+                path: app_logout
+            form_login:
+                default_target_path: admin_tutos
+
+                # "login" is the name of the route created previously
+                login_path: login_admin
+                check_path: login_admin
+            lazy: true
+            provider: app_admin_provider
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

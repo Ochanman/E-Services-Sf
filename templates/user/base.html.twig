@@ -30,14 +30,14 @@
                 <a href="{{ path('user_home') }}">ACCUEIL</a>
             </li>
             <li class="main-menu-element">
-                <a href="#middleBottom">ACTIVER GARANTIE</a>
+                <a href="{{ path('user_info_update', {'id': app.user.id}) }}">MON COMPTE</a>
             </li>
             <li class="main-menu-element">
                 <a href="{{ path('user_declare') }}">DECLARER PANNE</a>
             </li>
 
             <a class="btn-grad" href="{{ path('login') }}">SE DECONNECTER</a>
-
+<div>Vous connectez en tant que {{ app.user.lastname }} {{ app.user.firstname }}</div>
         </ul>
     </nav>
 </header>

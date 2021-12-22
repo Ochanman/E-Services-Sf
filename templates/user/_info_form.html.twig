@@ -33,7 +33,15 @@
         {{ form_widget(infoForm.phone, {'attr': {'class': 'form-control', 'placeholder': 'telephone', 'aria-label': 'telephone', 'aria-describedby': 'basic-addon2'}}) }}
         <span id="addon-wrapping">{{ form_label(infoForm.phone, 'telephone', {'label_attr': {'class': 'input-group-text'}}) }}</span>
     </div>
+    <div class="input-group mb-3">
+        <span id="addon-wrapping">{{ form_label(infoForm.email, 'email', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+        {{ form_widget(infoForm.email, {'attr': {'class': 'form-control', 'placeholder': 'email', 'aria-label': 'email', 'aria-describedby': 'addon-wrapping'}}) }}
+    </div>
 
+    <div class="input-group mb-3">
+        {{ form_widget(infoForm.password, {'attr': {'class': 'form-control', 'name': 'password', 'placeholder': 'password', 'aria-label': 'password', 'aria-describedby': 'basic-addon2', 'type': 'password'}}) }}
+        <span id="addon-wrapping">{{ form_label(infoForm.password, 'Password', {'label_attr': {'class': 'input-group-text',}}) }}</span>
+    </div>
 
 
 

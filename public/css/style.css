@@ -453,3 +453,81 @@ a {
   margin: 30vh auto;
   width: 80vw;
 }
+
+/********* track*******/
+
+.track {
+  margin: 5% 0 20%;
+}
+.contentTrack {
+
+  width: 60%;
+  height: 80vh;
+  margin: 0 auto;
+  border: 1px solid black;
+  text-align: center;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "d d d"
+    "e f g"
+    "h h h"
+    "h h h"
+    "i i i"
+    "i i i";
+}
+
+.flexTrack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.trackTop {
+  grid-area: d;
+  border: 1px solid black;
+  background-color: rgb(163, 153, 224);
+  flex-direction: column;
+  justify-content: center;
+}
+.trackName {
+  grid-area: e;
+  border: 1px solid black;
+}
+.trackInfo {
+  grid-area: f;
+  border: 1px solid black;
+}
+.trackPhone{
+  grid-area: g;
+  border: 1px solid black;
+}
+.trackHistory {
+  grid-area: h;
+  border: 1px solid black;
+  background-color: rgb(163, 153, 224);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.trackMsg {
+  grid-area: i;
+  border: 1px solid black;
+  text-align: start;
+}
+.dot {
+  width: 32px;
+  height: 32px;
+  background: #8ecc14;
+  border-radius: 100%;
+  margin: 0 auto;
+}
+.boxTrack {
+
+  width: 100px;
+}
+
+
+
+/* ******* end track ******** */

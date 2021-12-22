@@ -45,12 +45,12 @@
             <div class="contentBtnL flex">
                 <a class="btn btnTL" href="{{ path('user_tutos') }}">AIDE EN VIDEO</a>
 
-                <a class="btn btnBL" href="">ACITVER GARANTIE</a>
+                <a class="btn btnBL" href="{{ path('user_info_update', {'id': app.user.id}) }}">MON COMPTE</a>
             </div>
             <div class="contentBtnR flex">
                 <a class="btn btnTR" href="{{ path('user_declare') }}">DÉCLAREZ MA PANNE</a>
 
-                <a class="btn btnBR" href="">SUIVRE MON DOSSIER</a>
+                <a class="btn btnBR" href="{{ path('user_info_track', {'id': app.user.id}) }}">SUIVRE MON DOSSIER</a>
             </div>
         </section>
         <section>
