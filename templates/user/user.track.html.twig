@@ -1,0 +1,77 @@
+{% extends 'user/base.html.twig' %}
+
+
+{% block main %}
+    <section class="tutotop">
+        <h2>Suivi de ma réparation</h2>
+        <p>
+            E-Services vous permet de suivre toutes les étapes de la réparation
+            de votre appareil
+        </p>
+        <h3>Ma demande</h3>
+    </section>
+    <main>
+        <section class="track">
+
+            <div class="contentTrack">
+                <div class="flexTrack trackTop">
+                    <div class="trackTopNumber">Dossier N°000001</div>
+                    <div class="trackTopTitle">DÉCLARATION DE PANNE</div>
+                </div>
+                <div class="flexTrack trackName">
+                    <div class="trackNameName">David Godignon</div>
+                    <div class="trackNameEmail">ochanman@live.fr</div>
+                </div>
+                <div class="flexTrack trackInfo">
+                    <div class="trackInfoPhone">0556357856</div>
+                    <div class="trackInfoAddress">40 route de pauillac</div>
+                    <div class="trackInfoCity">33460 Soussans</div>
+                </div>
+                <div class="flexTrack trackPhone">
+                    <div class="trackPhoneModel">Iphonec 6s</div>
+                    <div class="trackPhoneimei">350000000000000</div>
+                    <div class="trackPhoneWarranty">Valide</div>
+                </div>
+                <div class="trackHistory">
+                    <div class="point first">
+                        <img src="{{ asset('img/picto-flow1-min.png') }}" class="picto-state" />
+                    </div>
+                    <div class="boxTrack">
+                        <div class="dot"></div>
+                        <span class="label">Demande validée</span>
+                    </div>
+                    <div class="boxTrack">
+                        <div class="dot"></div>
+                        <span class="label">Appareil reçu</span>
+                    </div>
+                    <div class="boxTrack">
+                        <div class="dot"></div>
+                        <span class="label">En cours de réparation</span>
+                    </div>
+
+                    <div class="boxTrack">
+                        <div class="dot"></div>
+                        <span class="label">Appareil réparé</span>
+                    </div>
+                    <div class="boxTrack">
+                        <div class="dot"></div>
+                        <span class="label">Appareil envoyé</span>
+                    </div>
+                    <div class="boxTrack">
+                        <div class="dot"></div>
+                        <span class="label">Dossier clôturé</span>
+                    </div>
+                    <div class="point last active isNext">
+                        <img src="{{ asset('img/picto-flow4-min.png') }}" class="picto-state" />
+                    </div>
+                </div>
+                <div class="trackMsg">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+                    culpa eos expedita? Suscipit praesentium culpa ipsam ullam ab,
+                    corrupti aut asperiores? Exercitationem necessitatibus voluptatum
+                    deserunt consectetur odit quisquam sed expedita.
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
