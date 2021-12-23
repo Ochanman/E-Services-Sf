@@ -11,15 +11,16 @@
         <h3>Ma demande</h3>
     </section>
     <main>
+        {% for product in products %}
         <section class="track">
 
             <div class="contentTrack">
                 <div class="flexTrack trackTop">
-                    <div class="trackTopNumber">Dossier N°000001</div>
+                    <div class="trackTopNumber">Dossier N°{{ product.number }}</div>
                     <div class="trackTopTitle">DÉCLARATION DE PANNE</div>
                 </div>
                 <div class="flexTrack trackName">
-                    <div class="trackNameName">{{ app.user.firstname }} {{ app.user.lastname }}</div>
+                    <div class="trackNameName">{{ user.firstname }} {{ user.lastname }}</div>
                     <div class="trackNameEmail">{{ app.user.email }}</div>
                 </div>
                 <div class="flexTrack trackInfo">
@@ -27,9 +28,10 @@
                     <div class="trackInfoAddress">{{ app.user.address }} {{ app.user.additionaladdress }}</div>
                     <div class="trackInfoCity">{{ app.user.zipcode }} {{ app.user.city }}</div>
                 </div>
+
                 <div class="flexTrack trackPhone">
-                    <div class="trackPhoneModel">{{ app.user.product.model }}</div>
-                    <div class="trackPhoneimei">350000000000000</div>
+                    <div class="trackPhoneModel">{{ product.model }}</div>
+                    <div class="trackPhoneimei">{{ product.imei }}</div>
                     <div class="trackPhoneWarranty">Valide</div>
                 </div>
                 <div class="trackHistory">
@@ -72,6 +74,8 @@
                     deserunt consectetur odit quisquam sed expedita.
                 </div>
             </div>
+
         </section>
+        {% endfor %}
     </main>
 {% endblock %}

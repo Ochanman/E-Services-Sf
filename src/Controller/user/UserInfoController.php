@@ -7,6 +7,7 @@ use App\Entity\Product;
 use App\Entity\User;
 use App\Form\UserType;
 
+use App\Repository\ProductRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -105,16 +106,23 @@ class UserInfoController extends AbstractController
      * @Route("/user/info/track/{id}", name="user_info_track")
      */
     //  je créé une methose qui fait appel BookRepository et EntityManagerInterface
-    public function userTrack($id, Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher)
+    public function productTrack($id, Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher)
     {
         // je mets dans une variable le contenu d'un book avec l id de recuperé dans l'url via la methode
         // find de la classe $bookRepository
-        $user = $userRepository->find($id);
 
+
+
+
+            $user = $this->getUser();
+            $userProducts = $user -> getProduct();
 
 
         // je renvoie le formulaire créé mis en forme via la methode render sur la page admin/book_create.html.twig
-        return $this->render("user/user.track.html.twig");
+        return $this->render("user/user.track.html.twig",
+            ["products" => $userProducts,
+            "user" => $user]
+        );
 
     }
 
