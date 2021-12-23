@@ -11,18 +11,29 @@
 {# j'insere le block main qui permet de mettre du contenu dans le main de ma page books   #}
 {# dans ce block la boucle for va permettre d'afficher tout le contenu du $array selectionné dans GuestPageController.php   #}
 {% block main %}
-    <a class="lien" href="{{ path('admin_tuto_create') }}">Créer un tuto</a>
-    <section class="boxBook">
+
+    <section class="headSection">
+        <h2>TUTOS</h2>
+        <p>
+            Gestion de nos tutos
+        </p>
+
+        <a class="link1" href="{{ path('admin_tuto_create') }}">Créer un tuto</a>
+    </section>
+    <section class="flex tutovideo">
 
         {% for tuto in tutos %}
-            <div id="contentBook">
-                <h2 id="">{{ tuto.title }}</h2>
-
-                    <h2 id="bookAuthor">Fichier {{ tuto.filename }}</h2>
-
-                <h2 id="bookPublish">lien Youtube {{ tuto.pathvideo}}</h2>
-                <a class="lien1" href="{{ path('admin_tuto', {'id': tuto.id}) }}">Voir ce livre</a>
-                <a class="lien2" href="{{ path('admin_tuto_update', {'id': tuto.id}) }}">Mettre à jour</a>
+            <div class="contentbox">
+                <div class="box">
+                    <a
+                            href="#"
+                            onclick="Popup=window.open('{{ tuto.pathvideo }}','Popup','toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,width=560,height=315,left=500 top=300');return false;"
+                    ><img class="screen" src="{{ asset('img/tuto/'~tuto.filename) }}" alt=""
+                        /></a>
+                </div>
+                <p>{{ tuto.title }}</p>
+                <a class="link link2" href="{{ path('admin_tuto_update', {'id': tuto.id}) }}">Mettre à jour</a>
+                <a class="link link3" href="{{ path('admin_tuto_update', {'id': tuto.id}) }}">Supprimer</a>
 {#                <a class="lien3" href="{{ path('admin_tuto_delete', {'id': book.id}) }}">Supprimer ce livre</a>#}
 
             </div>

@@ -30,6 +30,7 @@ security:
             security: false
         # à dupliquer
         main:
+            pattern: ^/user/
             logout:
                 path: app_logout
             form_login:
@@ -41,10 +42,11 @@ security:
             lazy: true
             provider: app_user_provider
         mainadmin:
+            pattern: ^/admin/
             logout:
-                path: app_logout
+                path: app_logout_admin
             form_login:
-                default_target_path: admin_tutos
+                default_target_path: admin_home
 
                 # "login" is the name of the route created previously
                 login_path: login_admin
@@ -61,7 +63,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/admin, roles: ROLE_ADMIN }
+         #- { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/user, roles: ROLE_USER }
 
 when@test:

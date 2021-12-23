@@ -1,0 +1,324 @@
+@font-face {
+  font-family: "Roboto Regular";
+  src: url(../font/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: "Valera Round";
+  src: url(../font/VarelaRound-Regular.ttf);
+}
+*,
+body {
+  margin: 0;
+  padding: 0;
+  text-decoration:none;
+  list-style-type: none;
+  font-family: "Valera Round";
+
+}
+.flex {
+  display: flex;
+}
+.logo {
+  width: 10%;
+  margin-right: 10%;
+}
+.logoES {
+  width: 100%;
+}
+header {
+
+  position: fixed;
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+  padding-top: 20px;
+  background-color: rgba(163, 153, 224, 0.4);
+  top: 0;
+  left: 0;
+  
+  z-index: 2;
+  
+}
+
+.navigation {
+  margin-left: 5%;
+
+}
+.main-menu {
+  justify-content: end;
+  padding: 0;
+
+  text-transform: uppercase;
+}
+
+.main-menu .main-menu-element {
+  padding: 0 1.5rem;
+}
+.main-menu .main-menu-element a {
+  color: rgb(57, 51, 97);
+  text-decoration: none;
+  font-size: 1vw;
+  font-weight: 600;
+  letter-spacing: 1px;
+  
+}
+
+.main-menu .main-menu-element a:hover {
+  color: white;
+}
+/* SEPARATION DES ELEMENTS DU MENU PAR UN BORDER SAUF LE DERNIER */
+.main-menu .main-menu-element:not(:nth-last-child(-n + 2)) {
+  border-right: 1px solid black;
+}
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #a399e0 0%,
+    #da73c3 51%,
+    #a399e0 100%
+  );
+}
+.btn-grad {
+  margin-left: 100px;
+  font-size: 1vw;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  
+  border-radius: 10px;
+  display: block;
+  min-width: 120px;
+  height: 30px;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+}
+
+
+.form {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  height: 40vh;
+  margin-top: 80px;
+}
+
+
+.contentFooter {
+  justify-content: center;
+  
+  background-color: rgba(163, 153, 224, 0.4);
+  width: 100%;
+  padding: 20px 0;
+  
+}
+.logoFooter {
+ width: 15vw;
+ 
+}
+.imgLogoFooter {
+  width: 100%;
+  object-fit: cover;
+ }
+
+
+.contentContact {
+  flex-direction: column;
+  border-left: 1px solid black;
+  padding-left: 3%;
+  justify-content: center;
+
+  margin-left: 3%;
+}
+
+
+.footerMenu {
+  justify-content: center;
+  margin-top: 2%;
+}
+.footerMenu li:not(:last-child) {
+  border-right: 1px solid black;
+}
+
+.footerMenu li a {
+  color: black;
+  font-weight: lighter;
+  padding: 0 0.5rem;
+}
+.contentContact h3 {
+  font-size: 1.2rem;
+}
+.contentContact span,
+a {
+  font-size: 0.8rem;
+  color: black;
+}
+.contentContact span {
+  margin-top: 1%;
+}
+
+/* -----------------TUTOVIDEO--------------------- */
+
+.headSection {
+  text-align: center;
+  margin-top: 20vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "a a a"
+    "b b b"
+    "c . .";
+}
+.headSection h2 {
+  grid-area: a;
+  margin: 20px;
+}
+.headSection p {
+  grid-area: b;
+  font-weight: bold;
+}
+.link1 {
+  grid-area: c;
+  font-size: 1.17em;
+  font-weight: bold;
+  color: #a399e0;
+    margin: 40px;
+
+}
+.link1:hover {
+  transform: scale(1.1);
+}
+.link2, .link3 {
+  font-size: 1.17em;
+  font-weight: bold;
+  color: #a399e0;
+  margin: 0 10px;
+  border: 1px solid #a399e0;
+border-radius: 15px;
+  padding: 0 5px;
+}
+.link2:hover, .link3:hover {
+  border: 1px solid white;
+  color: white;
+  background-color: #a399e0;
+}
+
+
+.tutovideo {
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+.contentbox {
+  
+  width: 20%;
+  
+  text-align: center;
+  margin: 15px;
+}
+.box:hover {
+  transform: scale(1.1);
+}
+
+.screen {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.headSection h2, h3 {
+  color: rgba(163, 153, 224)
+}
+
+
+/********* track*******/
+
+.track {
+  margin: 5% 0 20%;
+}
+.contentTrack {
+  
+  width: 60%;
+  height: 80vh;
+  margin: 0 auto;
+  border: 1px solid black;
+  text-align: center;
+  
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "d d d"
+    "e f g"
+    "h h h"
+    "h h h"
+    "i i i"
+    "i i i";
+}
+
+.flexTrack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.trackTop {
+  grid-area: d;
+  border: 1px solid black;
+  background-color: rgb(163, 153, 224);
+  flex-direction: column;
+  justify-content: center;
+}
+.trackName {
+  grid-area: e;
+  border: 1px solid black;
+}
+.trackInfo {
+  grid-area: f;
+  border: 1px solid black;
+}
+.trackPhone{
+  grid-area: g;
+  border: 1px solid black;
+}
+.trackHistory {
+  grid-area: h;
+  border: 1px solid black;
+  background-color: rgb(163, 153, 224);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.trackMsg {
+  grid-area: i;
+  border: 1px solid black;
+  text-align: start;
+}
+.dot {
+  width: 32px;
+  height: 32px;
+  background: #8ecc14;
+  border-radius: 100%;
+  margin: 0 auto;
+}
+.boxTrack {
+  
+  width: 100px;
+}
+
+
+
+/* ******* info ******** */
+

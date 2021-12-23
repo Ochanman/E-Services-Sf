@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block css %}
-        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('css/admin.css') }}" type="text/css" rel="stylesheet">
     {% endblock css %}
     <link
             rel="icon"
             type="image/png"
-            href="{{ asset('img/logo/logo_small_icon_only_inverted.png') }}"
+            href="./assets/img/logo/logo_small_icon_only_inverted.png"
     />
     <title>E-Services</title>
 </head>
@@ -19,7 +19,7 @@
     <div class="logo">
         <img
                 class="logoES"
-                src="{{ asset('img/logo/logoh_small.png') }}"
+                src="{{ asset('img/logo/logoh_white_large.png') }}"
                 alt="Le logo de E-Services"
         />
     </div>
@@ -27,17 +27,19 @@
     <nav class="flex navigation">
         <ul class="flex main-menu">
             <li class="main-menu-element">
-                <a href="{{ path('user_home') }}">ACCUEIL</a>
+                <a href="{{ path('admin_home') }}">ACCUEIL</a>
             </li>
             <li class="main-menu-element">
-                <a href="#middleBottom">ACTIVER GARANTIE</a>
+                <a href="#middleBottom">Gestion dossiers</a>
             </li>
             <li class="main-menu-element">
-                <a href="{{ path('user_declare') }}">DECLARER PANNE</a>
+                <a href="{{ path('admin_tutos') }}">TUTOS</a>
             </li>
-
-            <a class="btn-grad" href="{{ path('login') }}">SE DECONNECTER</a>
-
+            <input
+                    class="main-menu-element btn-grad"
+                    type="button"
+                    value="CONNEXION"
+            />
         </ul>
     </nav>
 </header>
@@ -53,13 +55,7 @@
     </div>
 {% endfor %}
 <footer class="footer">
-    <div class="imgFooter">
-        <img
-                class="phones"
-                src="{{ asset('img/footer.png') }}"
-                alt="image de telephones"
-        />
-    </div>
+
     <div class="flex contentFooter">
         <div class="logoFooter flex">
             <img class="imgLogoFooter" src="{{ asset('img/logo/logo_small.png') }}" alt="logo entreprise" />
@@ -76,7 +72,7 @@
     </div>
 </footer>
 
-<script src="{{ asset('js/index.js') }}"></script>
+<script src="./assets/js/index.js"></script>
 </body>
 </html>
 
