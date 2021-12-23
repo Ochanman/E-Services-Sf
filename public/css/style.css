@@ -523,6 +523,13 @@ a {
   border-radius: 100%;
   margin: 0 auto;
 }
+.dotOff {
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
+  border-radius: 100%;
+  margin: 0 auto;
+}
 .boxTrack {
 
   width: 100px;

@@ -12,6 +12,8 @@
     </section>
     <main>
         {% for product in products %}
+
+
         <section class="track">
 
             <div class="contentTrack">
@@ -21,52 +23,31 @@
                 </div>
                 <div class="flexTrack trackName">
                     <div class="trackNameName">{{ user.firstname }} {{ user.lastname }}</div>
-                    <div class="trackNameEmail">{{ app.user.email }}</div>
+                    <div class="trackNameEmail">{{ user.email }}</div>
                 </div>
                 <div class="flexTrack trackInfo">
-                    <div class="trackInfoPhone">{{ app.user.phone }}</div>
-                    <div class="trackInfoAddress">{{ app.user.address }} {{ app.user.additionaladdress }}</div>
-                    <div class="trackInfoCity">{{ app.user.zipcode }} {{ app.user.city }}</div>
+                    <div class="trackInfoPhone">{{ user.phone }}</div>
+                    <div class="trackInfoAddress">{{ user.address }} {{ user.additionaladdress }}</div>
+                    <div class="trackInfoCity">{{ user.zipcode }} {{ user.city }}</div>
                 </div>
 
                 <div class="flexTrack trackPhone">
-                    <div class="trackPhoneModel">{{ product.model }}</div>
-                    <div class="trackPhoneimei">{{ product.imei }}</div>
-                    <div class="trackPhoneWarranty">Valide</div>
+                    <div class="trackPhoneModel">Appareil {{ product.model }}</div>
+                    <div class="trackPhoneimei">Imei {{ product.imei }}</div>
+                    <div class="trackPhoneWarranty">Garantie {% if product.warrantyStatus == 1 %}Valide{% else %}Non valide{% endif %}</div>
                 </div>
-                <div class="trackHistory">
-                    <div class="point first">
-                        <img src="{{ asset('img/picto-flow1-min.png') }}" class="picto-state" />
-                    </div>
-                    <div class="boxTrack">
-                        <div class="dot"></div>
-                        <span class="label">Demande validée</span>
-                    </div>
-                    <div class="boxTrack">
-                        <div class="dot"></div>
-                        <span class="label">Appareil reçu</span>
-                    </div>
-                    <div class="boxTrack">
-                        <div class="dot"></div>
-                        <span class="label">En cours de réparation</span>
-                    </div>
+                {% block track %}
 
-                    <div class="boxTrack">
-                        <div class="dot"></div>
-                        <span class="label">Appareil réparé</span>
-                    </div>
-                    <div class="boxTrack">
-                        <div class="dot"></div>
-                        <span class="label">Appareil envoyé</span>
-                    </div>
-                    <div class="boxTrack">
-                        <div class="dot"></div>
-                        <span class="label">Dossier clôturé</span>
-                    </div>
-                    <div class="point last active isNext">
-                        <img src="{{ asset('img/picto-flow4-min.png') }}" class="picto-state" />
-                    </div>
-                </div>
+                        {% if product.event == 'request_check' %}  {% include "user/_event_request_check.html.twig" %} {% endif %}
+                        {% if product.event == 'received' %}  {% include "user/_event_received.html.twig" %} {% endif %}
+                        {% if product.event == 'repair' %}  {% include "user/_event_repair.html.twig" %} {% endif %}
+                        {% if product.event == 'repair_finished' %}  {% include "user/_event_repair_finished.html.twig" %} {% endif %}
+                        {% if product.event == 'send' %}  {% include "user/_event_send.html.twig" %} {% endif %}
+                        {% if product.event == 'finished' %}  {% include "user/_event_finished.html.twig" %} {% endif %}
+
+                {% endblock track %}
+
+
                 <div class="trackMsg">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
                     culpa eos expedita? Suscipit praesentium culpa ipsam ullam ab,
@@ -76,6 +57,7 @@
             </div>
 
         </section>
+
         {% endfor %}
     </main>
 {% endblock %}

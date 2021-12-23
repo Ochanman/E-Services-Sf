@@ -54,6 +54,16 @@ class Product
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $event;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $warranty_status;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -140,6 +150,30 @@ class Product
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getEvent(): ?string
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?string $event): self
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    public function getWarrantyStatus(): ?bool
+    {
+        return $this->warranty_status;
+    }
+
+    public function setWarrantyStatus(?bool $warranty_status): self
+    {
+        $this->warranty_status = $warranty_status;
 
         return $this;
     }
