@@ -3,10 +3,12 @@
 namespace App\Controller;
 use App\Repository\TutoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 //je fais hériter ma classe GuestPageController de la classe AbstractController de Symfony
 class GuestPageController extends AbstractController
 {
+
     /**
      * je crée une page racine qui porte le nom "home"
      * @Route("/", name="home")

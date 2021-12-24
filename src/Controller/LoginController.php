@@ -31,6 +31,22 @@ class LoginController extends AbstractController
         // controller can be blank: it will never be called!
         throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
+    /**
+     * je crée une page racine qui porte le nom "redirect"
+     * @Route("/redirect", name="redirect")
+     */
 
+    public function redirectRole()
+    {
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('admin_home');
+        } elseif ($this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('user_home');
+        } else {
+            return $this->redirectToRoute('login');
+        }
+
+    }
 
 }

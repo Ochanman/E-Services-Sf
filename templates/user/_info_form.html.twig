@@ -1,5 +1,5 @@
+{{ form_start(infoForm) }}
 <div class="form">
-    {{ form_start(infoForm) }}
     <div class="input-group mb-3">
         {{ form_widget(infoForm.firstname, {'attr': {'class': 'form-control', 'placeholder': 'prenom', 'aria-label': 'prenom', 'aria-describedby': 'basic-addon2'}}) }}
         <span id="addon-wrapping">{{ form_label(infoForm.firstname, 'prenom', {'label_attr': {'class': 'input-group-text'}}) }}</span>
@@ -12,7 +12,6 @@
         {{ form_widget(infoForm.address, {'attr': {'class': 'form-control', 'placeholder': 'adresse', 'aria-label': 'adresse', 'aria-describedby': 'basic-addon2'}}) }}
         <span id="addon-wrapping">{{ form_label(infoForm.address, 'adresse', {'label_attr': {'class': 'input-group-text'}}) }}</span>
     </div>
-
 
 
     <div class="input-group mb-3">
@@ -44,8 +43,7 @@
     </div>
 
 
-
     <div class="col-12">
         <button class="btn-primary" type="submit">Valider</button>
-
-{{ form_end(infoForm) }}
+    </div>
+    {{ form_end(infoForm) }}

@@ -1,29 +1,40 @@
-{% extends 'base.html.twig' %}
-    {% block css %}
-        {{ parent() }}<link
+{% block css %}
+    <link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet">
+    <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
     />
-    {% endblock css %}
-{% block title %}Hello LoginController!{% endblock %}
+{% endblock css %}
+<section class="login">
 
-{% block main %}
+
+    <div class="logo">
+        <img class="ImgLogo" src="{{ asset('img/logo/logo_small.png') }}">
+    </div>
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
     <div class="form">
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username"
-               value="{{ last_username }}"/>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
-        {# If you want to control the URL the user is redirected to on success
- <input type="hidden" name="_target_path" value="/account"/> #}
-        <button type="submit">login</button>
-    </form>
-        <p>Si vous v'avez pas de compte, vous devez vous inscrire en cliquat <a class="" href="{{ path('user_create_info') }}">ici</a></p>
+        <form action="{{ path('login') }}" method="post">
+            <div class="mb-3">
+                <label class="form-label" for="username">Email:</label>
+                <input class="form-control" type="text" id="username" name="_username"
+                       value="{{ last_username }}"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password:</label>
+                <input class="form-control" type="password" id="password" name="_password"/>
+            </div>
+            {# If you want to control the URL the user is redirected to on success
+     <input type="hidden" name="_target_path" value="/account"/> #}
+            <button class="btn btn-primary" type="submit">login</button>
+            <a class="btn btn-primary" href="{{ path('home') }}">Retour</a>
+
+        </form>
+        <p>Si vous v'avez pas de compte, vous devez vous inscrire en cliquant <a class=""
+                                                                                href="{{ path('user_create_info') }}">ici</a>
+        </p>
     </div>
-{% endblock %}
+</section>
