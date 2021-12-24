@@ -132,6 +132,24 @@ class AdminTutoController extends AbstractController
 
     }
 
-
+    /**
+     * je créé une route /book/delete qui attend un id et porte le nom book_delete
+     *@Route("/admin/tuto/delete/{id}", name="admin_tuto_delete")
+     */
+    // je créé ne methode avec en parametre l'id, la classe BookRepository instanciée dans la variable
+    // $bookRepository et la classe EntityManagerInterface qui est instanciée dans la variable $entityManager
+    public function tutoDelete($id, TutoRepository $tutoRepository, EntityManagerInterface $entityManager)
+    {
+        // je mets dans la variable $book le resultat du livre portant l'id que l on, aura recupéré dans l'url
+        // en utilisant la methode find de la classe BookRepository
+        $tuto = $tutoRepository->find($id);
+        // j'utilise la methode remove de la classe EntityManagerInterface pour preparer la suppression
+        $entityManager->remove($tuto);
+        // j'utilise la methode flush de la classe EntityManagerInterface pour appliquer la suppression
+        $entityManager->flush();
+        $this->addFlash('success', "le tuto a bien été supprimé!");
+        //je redirige sur la route books apres avoir supprimé
+        return $this->redirectToRoute('admin_tutos');
+    }
 
 }
