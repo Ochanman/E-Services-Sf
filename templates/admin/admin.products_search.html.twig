@@ -9,8 +9,12 @@
         <div class="headSection">
             <h2>Dossiers en cours</h2>
             <p>
-                Les 10 derniers dossiers
+                Tous les dossiers
             </p>
+            <form class="search" action="{{ path('admin_search_products') }}">
+                <input type="text" name="q">
+                <input type="submit">
+            </form>
         </div>
 
         <table class="table">
@@ -28,23 +32,23 @@
 
             <tbody>
             {% for product in products %}
-                <tr class="TrackAdmin">
+            <tr class="TrackAdmin">
 
 
-                    <th scope="row">{{ product.number }}</th>
-                    <td>{{ product.user.firstname }} {{ product.user.lastname }}</td>
-                    <td>{{ product.user.email }}</td>
-                    <td>{{ product.model }}</td>
-                    <td>{{ product.imei }}</td>
-                    <td>{% if product.warrantyStatus == 1 %}Valide{% else %}Non valide{% endif %}</td>
-                    <td>{{ product.event }}</td>
-                    <td><input
-                                onclick="window.location.href = '{{ path('admin_product', {'id': product.id}) }}'"
-                                class="btn-gradManage"
-                                type="button"
-                                value="GERER"
-                        /></td>
-                </tr>
+                <th scope="row">{{ product.number }}</th>
+                <td>{{ product.user.firstname }} {{ product.user.lastname }}</td>
+                <td>{{ product.user.email }}</td>
+                <td>{{ product.model }}</td>
+                <td>{{ product.imei }}</td>
+                <td>{% if product.warrantyStatus == 1 %}Valide{% else %}Non valide{% endif %}</td>
+                <td>{{ product.event }}</td>
+                <td><input
+                        onclick="window.location.href = '{{ path('admin_product', {'id': product.id}) }}'"
+                        class="btn-gradManage"
+                        type="button"
+                        value="GERER"
+                /></td>
+            </tr>
             {% endfor %}
             </tbody>
         </table>

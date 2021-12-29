@@ -8,10 +8,17 @@
     <section class="trackAdmin">
         <div class="headSection">
             <h2>Dossiers en cours</h2>
-            <p>
-                Les 10 derniers dossiers
-            </p>
+            <div class="divSearch">
+                <p>
+                    Recherche par N° de dossier
+                </p>
+                <form class="search" action="{{ path('admin_search_products') }}">
+                    <input type="text" name="q">
+                    <button class="btn-gradManage" type="submit">Recherche</button>
+                </form>
+            </div>
         </div>
+
 
         <table class="table">
             <thead>

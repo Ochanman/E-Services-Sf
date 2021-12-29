@@ -185,7 +185,7 @@ a {
   grid-area: a;
   margin: 20px;
 }
-.headSection p {
+.divSearch {
   grid-area: b;
   font-weight: bold;
 }
@@ -323,22 +323,50 @@ border-radius: 15px;
 /* ******* info ******** */
 
 /* ******* track admin ******** */
-.contentTrackAdmin {
+.divSearch {
+
+margin: 0 auto;
+
+}
+td {
+  text-align: center;
+}
+.table {
+ width: 80vw;
   margin: 0 auto;
-  width: 80%;
   border: 1px solid black;
-
-
 }
-.flexTrackAdmin {
-  display: flex;
-  justify-content: space-around;
-}
-.flexTrackAdmin:nth-child(odd) {
+.TrackAdmin:nth-child(odd) {
 
   background-color: rgb(163, 153, 224);
 
 }
+.btn-gradManage {
+  background-image: linear-gradient(
+          to right,
+          #a399e0 0%,
+          #da73c3 51%,
+          #a399e0 100%
+  );
+}
+.btn-gradManage {
 
+  font-size: 1vw;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+
+  border-radius: 10px;
+
+  min-width: 120px;
+  height: 30px;
+}
+
+.btn-gradManage:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+}
 
 /* ******* end track admin ******** */

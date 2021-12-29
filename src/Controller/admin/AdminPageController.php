@@ -16,7 +16,7 @@ class AdminPageController extends AbstractController
      */
     public function Showproducts(ProductRepository $productRepository)
     {
-        $products = $productRepository->findAll();
+        $products = $productRepository->findBy([], ['id' => 'DESC'],10);
 
         //je renvoi a twing le tableau via la methode render
         return $this->render("admin/admin.home.html.twig", ["products" => $products]);
