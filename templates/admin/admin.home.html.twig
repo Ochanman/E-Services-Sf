@@ -5,6 +5,30 @@
 {# dans ce block la boucle for va permettre d'afficher tout le contenu du $array selectionné dans GuestPageController.php #}
 {% block main %}
 
+    <section class="trackAdmin">
+        <div class="headSection">
+            <h2>Dossiers en cours</h2>
+            <p>
+                E-Services vous permet de suivre toutes les étapes de la réparation
+                de votre appareil
+            </p>
+        </div>
+        <div class="contentTrackAdmin">
+            {% for product in products %}
 
+            <div class="flexTrackAdmin">
+                <div class="trackTopNumber">Dossier N°{{ product.number }}</div>
+                {% if product.user %}
+                <div class="trackNameName">{{ product.user.firstname }}{{ product.user.lastname }}</div>
+                <div class="trackNameEmail">{{ product.user.email }}</div>
+                {% endif %}
+                <div class="trackPhoneModel">{{ product.model }}</div>
+                <div class="trackPhoneimei">{{ product.imei }}</div>
+                <div class="trackPhoneWarranty">{% if product.warrantyStatus == 1 %}Valide{% else %}Non valide{% endif %}</div>
+                <div class="label">{{ product.event }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 
 {% endblock main %}

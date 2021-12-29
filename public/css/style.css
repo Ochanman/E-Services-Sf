@@ -34,7 +34,7 @@ header {
   justify-content: center;
   width: 100%;
   background-color: white;
-  padding-top: 20px 80%;
+  padding-top: 10px;
   content: "";
   top: 0;
   left: 0;
@@ -96,12 +96,23 @@ header {
   min-width: 120px;
   padding: 0 30px;
   height: 30px;
+  line-height:32px;
   border: 1px solid black;
+
 }
 
 .btn-grad:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
+}
+
+.btnConnect {
+flex-direction: column;
+justify-content: start;
+}
+.ident {
+  font-style: italic;
+  font-size: 0.8rem;
 }
 #video video {
   width: 100%;
@@ -450,7 +461,7 @@ a {
 /************** declare ****************/
 .form {
 
-  margin: 0 auto;
+  margin: 10vh auto 0;
   width: 80vw;
 }
 
@@ -534,7 +545,15 @@ a {
 
   width: 100px;
 }
+.point {
+  width: 100px;
+}
+.picto {
+  width: 100%;
+  object-fit: cover;
+}
 
 
 
 /* ******* end track ******** */
+

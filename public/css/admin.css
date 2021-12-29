@@ -34,7 +34,7 @@ header {
   width: 100%;
   
   padding-top: 20px;
-  background-color: rgba(163, 153, 224, 0.4);
+  background-color: rgb(218,214,243);
   top: 0;
   left: 0;
   
@@ -117,8 +117,8 @@ header {
 
 .contentFooter {
   justify-content: center;
-  
-  background-color: rgba(163, 153, 224, 0.4);
+
+  background-color: rgb(218,214,243);
   width: 100%;
   padding: 20px 0;
   
@@ -322,3 +322,23 @@ border-radius: 15px;
 
 /* ******* info ******** */
 
+/* ******* track admin ******** */
+.contentTrackAdmin {
+  margin: 0 auto;
+  width: 80%;
+  border: 1px solid black;
+
+
+}
+.flexTrackAdmin {
+  display: flex;
+  justify-content: space-around;
+}
+.flexTrackAdmin:nth-child(odd) {
+
+  background-color: rgb(163, 153, 224);
+
+}
+
+
+/* ******* end track admin ******** */

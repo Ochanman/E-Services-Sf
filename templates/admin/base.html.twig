@@ -35,7 +35,12 @@
             <li class="main-menu-element">
                 <a href="{{ path('admin_tutos') }}">TUTOS</a>
             </li>
-            <a class="btn-grad" href="{{ path('app_logout') }}">SE DECONNECTER</a>
+            <input
+                    onclick="window.location.href = '{{ path('app_logout') }}'"
+                    class="btn-grad"
+                    type="button"
+                    value="SE DECONNECTER"
+            />
 
         </ul>
     </nav>

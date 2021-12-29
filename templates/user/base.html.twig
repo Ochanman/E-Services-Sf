@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% block css %}
         <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
     {% endblock css %}
@@ -35,16 +35,21 @@
             <li class="main-menu-element">
                 <a href="{{ path('user_declare', {'id': app.user.id}) }}">DECLARER PANNE</a>
             </li>
-
-            <a class="btn-grad" href="{{ path('app_logout') }}">SE DECONNECTER</a>
-<div>Vous connectez en tant que {{ app.user.lastname }} {{ app.user.firstname }}</div>
+            <div class="flex btnConnect">
+                <input
+                        onclick="window.location.href = '{{ path('app_logout') }}'"
+                        class="btn-grad"
+                        type="button"
+                        value="SE DECONNECTER"
+                />
+                <div><span class="ident">Vous êtes connectez en tant que: </span> {{ app.user.lastname }} {{ app.user.firstname }}</div>
+            </div>
         </ul>
     </nav>
 </header>
 
 
-
-    {% block main %}{% endblock main %}
+{% block main %}{% endblock main %}
 
 
 {% for message in app.flashes('success') %}
@@ -62,15 +67,15 @@
     </div>
     <div class="flex contentFooter">
         <div class="logoFooter flex">
-            <img class="imgLogoFooter" src="{{ asset('img/logo/logo_small.png') }}" alt="logo entreprise" />
+            <img class="imgLogoFooter" src="{{ asset('img/logo/logo_small.png') }}" alt="logo entreprise"/>
         </div>
         <div class="flex contentContact">
             <h3>CONTACTEZ-NOUS</h3>
             <span
-            >Nous serions ravis d'échanger avec vous autour de vos enjeux<br />et
+            >Nous serions ravis d'échanger avec vous autour de vos enjeux<br/>et
             vos problématiques.</span
             >
-            <span>david.godignon@eservices.fr <br />06 00 00 00 00 </span
+            <span>david.godignon@eservices.fr <br/>06 00 00 00 00 </span
             ><a href="#">formulaire de contact</a>
         </div>
     </div>

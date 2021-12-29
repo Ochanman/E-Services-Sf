@@ -94,6 +94,7 @@
                 réparation de votre appareil, connectez-vous à votre espace SAV.
             </p>
             <input
+                    onclick="window.location.href = '{{ path('user_info_track', {'id': app.user.id}) }}'"
                     class="btnFollow btn-grad"
                     type="button"
                     value="SUIVRE MON APPAREIL"
