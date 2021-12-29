@@ -2,8 +2,11 @@
 
 namespace App\Controller\admin;
 
+use App\Entity\Product;
+use App\Form\ProductType;
 use App\Repository\ProductRepository;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -60,5 +63,36 @@ class AdminProductController extends AbstractController
 
     }
 
+    /**
+     * je crée une page update avec un id qui porte le nom "book_update"
+     * @Route("/admin/product/update/{id}", name="admin_product_update")
+     */
+    //  je créé une methose qui fait appel BookRepository et EntityManagerInterface
+    public function ProductUpdate($id, Request $request, ProductRepository $ProductRepository, EntityManagerInterface $entityManager)
+    {
+        // je mets dans une variable le contenu d'un book avec l id de recuperé dans l'url via la methode
+        // find de la classe $bookRepository
+        $product = $ProductRepository->find($id);
+        $form = $this->createForm(ProductType::class, $product);
 
+        // avec la methode handleRequest j'associe le formulaire à $request
+        $form->handleRequest($request);
+
+        //  avec la methode isSubmitted je verifie si le formulaire a été soumis et avec la methode isValid verifie sa validité
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // cette classe permet de préparer sa sauvegarde en bdd
+            $entityManager->persist($product);
+
+            // cette classe permet de génèrer et éxecuter la requête SQL
+            $entityManager->flush();
+            $this->addFlash('success', "le dossier a bien été modifié!");
+        }
+
+        // je renvoie le formulaire créé mis en forme via la methode render sur la page admin/book_create.html.twig
+        return $this->render("admin/product_update.html.twig", [
+            'statusForm' => $form->createView()
+        ]);
+
+    }
 }
