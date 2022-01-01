@@ -46,7 +46,8 @@
                         {% if product.event == 'finished' %}  {% include "user/_event_finished.html.twig" %} {% endif %}
 
                     {% endblock track %}
-
+                    {{ form_start(statusForm) }}
+                    {{ form_end(statusForm) }}
 
                     <div class="trackMsg">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur

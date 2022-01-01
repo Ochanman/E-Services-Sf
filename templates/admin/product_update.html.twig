@@ -17,19 +17,14 @@
             <section class="track">
 
                 <div class="contentTrack">
-{#                    <div class="flexTrack trackTop">#}
-{#                        <div class="trackTopNumber">Dossier N°{{ form_label(statusForm.number) }}</div>#}
-{#                        <div class="trackTopTitle">DÉCLARATION DE PANNE</div>#}
-{#                    </div>#}
-{#                    <div class="flexTrack trackName">#}
-{#                        <div class="trackNameName">{{ product.user.firstname }} {{ product.user.lastname }}</div>#}
-{#                        <div class="trackNameEmail">{{ product.user.email }}</div>#}
-{#                    </div>#}
-{#                    <div class="flexTrack trackInfo">#}
-{#                        <div class="trackInfoPhone">{{ product.user.phone }}</div>#}
-{#                        <div class="trackInfoAddress">{{ product.user.address }} {{ product.user.additionaladdress }}</div>#}
-{#                        <div class="trackInfoCity">{{ product.user.zipcode }} {{ product.user.city }}</div>#}
-{#                    </div>#}
+                    <div class="flexTrack trackTop">
+                        <div class="trackTopNumber">Dossier N°{{ form_label(statusForm.number) }}</div>
+                        <div class="trackTopTitle">DÉCLARATION DE PANNE</div>
+                    </div>
+                    <div class="flexTrack trackName">
+                        <div class="trackNameName">{{ form_label(statusForm.user) }} </div>
+
+                    </div>
 
                     <div class="flexTrack trackPhone">
                         <div class="trackPhoneModel">Appareil {{ form_label(statusForm.model) }}</div>
