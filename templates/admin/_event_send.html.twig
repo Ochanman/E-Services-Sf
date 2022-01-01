@@ -1,0 +1,36 @@
+<div class="flex trackContent">
+    <div class="trackAdminEvent">Status {{ form_widget(statusForm.event) }}</div>
+    <div class="trackHistory">
+        <div class="point first">
+            <img class="picto" src="{{ asset('img/picto-flow1-min.png') }}" class="picto-state"/>
+        </div>
+        <div class="boxTrack">
+            <div class="dot"></div>
+            <span class="label">Demande validée</span>
+        </div>
+        <div class="boxTrack">
+            <div class="dot"></div>
+            <span class="label">Appareil reçu</span>
+        </div>
+        <div class="boxTrack">
+            <div class="dot"></div>
+            <span class="label">Remise en état</span>
+        </div>
+
+        <div class="boxTrack">
+            <div class="dot"></div>
+            <span class="label">Appareil réparé</span>
+        </div>
+        <div class="boxTrack">
+            <div class="dot"></div>
+            <span class="label">Appareil envoyé</span>
+        </div>
+        <div class="boxTrack">
+            <div class="dotOff"></div>
+            <span class="label">Dossier clôturé</span>
+        </div>
+        <div class="point">
+            <img class="picto" src="{{ asset('img/picto-flow4-min.png') }}" class="picto-state"/>
+        </div>
+    </div>
+</div>

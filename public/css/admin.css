@@ -214,7 +214,28 @@ border-radius: 15px;
   color: white;
   background-color: #a399e0;
 }
-
+.tutotop {
+  text-align: center;
+  margin-top: 20vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "a a a"
+    "b b b"
+    "c . .";
+}
+.tutotop h2 {
+  grid-area: a;
+  margin: 20px;
+}
+.tutotop p {
+  grid-area: b;
+  font-weight: bold;
+}
+.tutotop h3 {
+  grid-area: c;
+}
 
 .tutovideo {
   flex-wrap: wrap;
@@ -293,14 +314,20 @@ border-radius: 15px;
   grid-area: g;
   border: 1px solid black;
 }
-.trackHistory {
+.trackContent {
   grid-area: h;
+flex-direction: column;
   border: 1px solid black;
   background-color: rgb(163, 153, 224);
+}
+.trackHistory {
+
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .trackMsg {
   grid-area: i;
   border: 1px solid black;
@@ -310,6 +337,13 @@ border-radius: 15px;
   width: 32px;
   height: 32px;
   background: #8ecc14;
+  border-radius: 100%;
+  margin: 0 auto;
+}
+.dotOff {
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
   border-radius: 100%;
   margin: 0 auto;
 }
@@ -368,5 +402,7 @@ td {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
 }
-
+.divBtn {
+  text-align: center;
+}
 /* ******* end track admin ******** */

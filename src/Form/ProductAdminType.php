@@ -20,8 +20,8 @@ class ProductAdminType extends AbstractType
         $builder
             ->add('warranty_status', ChoiceType::class, [
                 'choices' => [
-                    'Yes' => true,
-                    'No' => false,
+                    'Oui' => true,
+                    'Non' => false,
                 ],
             ])
             ->add('event', EntityType::class, [
@@ -47,18 +47,15 @@ class ProductAdminType extends AbstractType
                 ],
 
             ])
-            ->add('number')
+
             ->add('model')
             ->add('imei')
             ->add('purchase_date', DateType::class, [
                 'widget' => 'single_text'
             ])
-            ->add('warranty', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-            ])
-            ->add('description')
-            ->add('valider', SubmitType::class);
+
+            ->add('description');
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
