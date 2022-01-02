@@ -81,9 +81,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $product;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Messages::class, mappedBy="sender", orphanRemoval=true)
+     */
+    private $sentuser;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Messages::class, mappedBy="recipientuser", orphanRemoval=true)
+     */
+    private $receiveduser;
+
     public function __construct()
     {
         $this->product = new ArrayCollection();
+        $this->sentuser = new ArrayCollection();
+        $this->receiveduser = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -283,6 +295,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($product->getUser() === $this) {
                 $product->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Messages[]
+     */
+    public function getSentuser(): Collection
+    {
+        return $this->sentuser;
+    }
+
+    public function addSentuser(Messages $sentuser): self
+    {
+        if (!$this->sentuser->contains($sentuser)) {
+            $this->sentuser[] = $sentuser;
+            $sentuser->setSender($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSentuser(Messages $sentuser): self
+    {
+        if ($this->sentuser->removeElement($sentuser)) {
+            // set the owning side to null (unless already changed)
+            if ($sentuser->getSender() === $this) {
+                $sentuser->setSender(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Messages[]
+     */
+    public function getReceiveduser(): Collection
+    {
+        return $this->receiveduser;
+    }
+
+    public function addReceiveduser(Messages $receiveduser): self
+    {
+        if (!$this->receiveduser->contains($receiveduser)) {
+            $this->receiveduser[] = $receiveduser;
+            $receiveduser->setRecipientuser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReceiveduser(Messages $receiveduser): self
+    {
+        if ($this->receiveduser->removeElement($receiveduser)) {
+            // set the owning side to null (unless already changed)
+            if ($receiveduser->getRecipientuser() === $this) {
+                $receiveduser->setRecipientuser(null);
             }
         }
 
