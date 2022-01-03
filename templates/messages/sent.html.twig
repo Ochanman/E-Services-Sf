@@ -29,7 +29,7 @@
                 <div class="col-4 text-center {{ bold }}">{{ message.sender.email }}</div>
                 <div class="col-4 text-center {{ bold }}">{{ message.createdAt|date }}</div>
                 <input
-                        onclick="window.location.href = '{{  path("read", {id:message.id}) }}'"
+                        onclick="window.location.href = '{{  path("read_sent", {id:message.id}) }}'"
                         class="col-1 text-center btn-grad"
                         type="button"
                         value="Voir"

@@ -34,15 +34,23 @@ class Messages
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="sentuser")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $sender;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="receiveduser")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $recipientuser;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="sent")
+     */
+    private $senderadmin;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="received")
+     */
+    private $recipientadmin;
 
     public function __construct()
     {
@@ -110,6 +118,30 @@ class Messages
     public function setRecipientuser(?User $recipientuser): self
     {
         $this->recipientuser = $recipientuser;
+
+        return $this;
+    }
+
+    public function getSenderadmin(): ?Admin
+    {
+        return $this->senderadmin;
+    }
+
+    public function setSenderadmin(?Admin $senderadmin): self
+    {
+        $this->senderadmin = $senderadmin;
+
+        return $this;
+    }
+
+    public function getRecipientadmin(): ?Admin
+    {
+        return $this->recipientadmin;
+    }
+
+    public function setRecipientadmin(?Admin $recipientadmin): self
+    {
+        $this->recipientadmin = $recipientadmin;
 
         return $this;
     }

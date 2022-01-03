@@ -14,7 +14,8 @@
         <div class="row">
             <div class="col-12 m-5">
                 <h3>Messagerie</h3>
-                <p>Message de {{ message.sender.email }}</p>
+
+                <p>Message de {{ message.senderadmin.email }}</p>
                 <p class="my-5">Le {{ message.createdAt|date }}</p>
                 <div>{{ message.message }}</div>
 

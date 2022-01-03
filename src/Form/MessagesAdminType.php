@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MessagesType extends AbstractType
+class MessagesAdminType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -25,8 +25,8 @@ class MessagesType extends AbstractType
 
 
 
-            ->add('recipientadmin', EntityType::class, [
-                "class" => Admin::class,
+            ->add('recipientuser', EntityType::class, [
+                "class" => User::class,
                 "choice_label" => "email",
                 "attr" => [
                     "class" => "form-control"

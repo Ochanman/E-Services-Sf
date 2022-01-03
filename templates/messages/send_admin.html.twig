@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 {% block css %}
     {{ parent() }}
     <link
@@ -17,8 +17,8 @@
                 <h3 class="m-5">Envoyer un message</h3>
                 {{ form_start(form) }}
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">{{ form_label(form.recipientadmin, 'Destinataire') }}</label>
-                    {{ form_widget(form.recipientadmin, {'attr': {'class': 'form-control'}}) }}
+                    <label for="exampleFormControlInput1" class="form-label">{{ form_label(form.recipientuser) }}</label>
+                    {{ form_widget(form.recipientuser, {'attr': {'class': 'form-control'}}) }}
 
                 </div>
                 <div class="mb-3">
@@ -29,7 +29,7 @@
 
                     <button class="btn-grad" type="submit">Envoyer</button>
                     <input
-                            onclick="window.location.href = '{{ path('user_info_track', {'id': app.user.id}) }}'"
+                            onclick="window.location.href = '{{ path('admin_home', {'id': app.user.id}) }}'"
                             class="btn-grad"
                             type="button"
                             value="Retour"
