@@ -31,11 +31,7 @@ class MessagesType extends AbstractType
                     "class" => "form-control"
                 ]
             ])
-            ->add('envoyer', SubmitType::class, [
-                "attr" => [
-                    "class" => "btn btn-primary"
-                ]
-            ])
+
         ;
     }
 

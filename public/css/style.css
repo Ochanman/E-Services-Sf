@@ -479,14 +479,13 @@ a {
   text-align: center;
 
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "d d d"
     "e f g"
     "h h h"
     "h h h"
-    "i i i"
     "i i i";
 }
 
@@ -526,6 +525,21 @@ a {
   grid-area: i;
   border: 1px solid black;
   text-align: start;
+  flex-direction: column;
+  text-align: center;
+}
+.msgTitle {
+  margin: 20px;
+}
+.trackMsgContent {
+  justify-content: space-around;
+  align-items: center;
+}
+.msgLink a {
+  margin: 10px;
+}
+.msgData p {
+  margin: 10px;
 }
 .dot {
   width: 32px;
@@ -557,3 +571,13 @@ a {
 
 /* ******* end track ******** */
 
+/* ******* Msg ******** */
+
+.blockMsg{
+  margin-top: 20vh;
+  border: 1px solid black;
+
+
+}
+
+/* ******* end Msg ******** */

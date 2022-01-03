@@ -14,30 +14,31 @@
         {% for product in products %}
 
 
-        <section class="track">
+            <section class="track">
 
-            <div class="contentTrack">
-                <div class="flexTrack trackTop">
-                    <div class="trackTopNumber">Dossier N°{{ product.number }}</div>
-                    <div class="trackTopTitle">DÉCLARATION DE PANNE</div>
-                    <div class="trackTopDescription">{{ product.description }}</div>
-                </div>
-                <div class="flexTrack trackName">
-                    <div class="trackNameName">{{ user.firstname }} {{ user.lastname }}</div>
-                    <div class="trackNameEmail">{{ user.email }}</div>
-                </div>
-                <div class="flexTrack trackInfo">
-                    <div class="trackInfoPhone">{{ user.phone }}</div>
-                    <div class="trackInfoAddress">{{ user.address }} {{ user.additionaladdress }}</div>
-                    <div class="trackInfoCity">{{ user.zipcode }} {{ user.city }}</div>
-                </div>
+                <div class="contentTrack">
+                    <div class="flexTrack trackTop">
+                        <div class="trackTopNumber">Dossier N°{{ product.number }}</div>
+                        <div class="trackTopTitle">DÉCLARATION DE PANNE</div>
+                        <div class="trackTopDescription">{{ product.description }}</div>
+                    </div>
+                    <div class="flexTrack trackName">
+                        <div class="trackNameName">{{ user.firstname }} {{ user.lastname }}</div>
+                        <div class="trackNameEmail">{{ user.email }}</div>
+                    </div>
+                    <div class="flexTrack trackInfo">
+                        <div class="trackInfoPhone">{{ user.phone }}</div>
+                        <div class="trackInfoAddress">{{ user.address }} {{ user.additionaladdress }}</div>
+                        <div class="trackInfoCity">{{ user.zipcode }} {{ user.city }}</div>
+                    </div>
 
-                <div class="flexTrack trackPhone">
-                    <div class="trackPhoneModel">Appareil {{ product.model }}</div>
-                    <div class="trackPhoneimei">Imei {{ product.imei }}</div>
-                    <div class="trackPhoneWarranty">Garantie {% if product.warrantyStatus == 1 %}Valide{% else %}Non valide{% endif %}</div>
-                </div>
-                {% block track %}
+                    <div class="flexTrack trackPhone">
+                        <div class="trackPhoneModel">Appareil {{ product.model }}</div>
+                        <div class="trackPhoneimei">Imei {{ product.imei }}</div>
+                        <div class="trackPhoneWarranty">
+                            Garantie {% if product.warrantyStatus == 1 %}Valide{% else %}Non valide{% endif %}</div>
+                    </div>
+                    {% block track %}
 
                         {% if product.event == 'request_check' %}  {% include "user/_event_request_check.html.twig" %} {% endif %}
                         {% if product.event == 'received' %}  {% include "user/_event_received.html.twig" %} {% endif %}
@@ -46,18 +47,36 @@
                         {% if product.event == 'send' %}  {% include "user/_event_send.html.twig" %} {% endif %}
                         {% if product.event == 'finished' %}  {% include "user/_event_finished.html.twig" %} {% endif %}
 
-                {% endblock track %}
+                    {% endblock track %}
 
 
-                <div class="trackMsg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-                    culpa eos expedita? Suscipit praesentium culpa ipsam ullam ab,
-                    corrupti aut asperiores? Exercitationem necessitatibus voluptatum
-                    deserunt consectetur odit quisquam sed expedita.
+                    <div class="flex trackMsg">
+
+
+                        <div class="msgTitle">
+                            <h3>Votre messagerie</h3>
+                        </div>
+                        <div class="flex trackMsgContent">
+                            <div class="msgData">
+                                <p>reçus : {{ app.user.receiveduser|length }}</p>
+                                <p>Envoyés : {{ app.user.sentuser|length }}</p>
+                            </div>
+                            <div class="msgLink">
+
+                                <a href="{{ path("received") }}" class="btn-grad">Boite de reception</a>
+
+
+                                <a href="{{ path("sent") }}" class="btn-grad">Elements envoyés</a>
+
+                                <a href="{{ path("send") }}" class="btn-grad">Envoyer un message</a>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
-            </div>
 
-        </section>
+            </section>
 
         {% endfor %}
     </main>

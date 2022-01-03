@@ -12,16 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MessagesController extends AbstractController
 {
-    /**
-     * @Route("/messages", name="messages")
-     */
-    public function index(): Response
-    {
-        return $this->render('messages/index.html.twig', [
-            'controller_name' => 'MessagesController',
-        ]);
-    }
-
+   
     /**
      * @Route("/send", name="send")
      */

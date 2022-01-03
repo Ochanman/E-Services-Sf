@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block css %}
+    {{ parent() }}
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -10,57 +11,53 @@
 {% block title %}Hello MessagesController!{% endblock %}
 
 {% block main %}
-    <section class="container">
+    <section class="flex container blockMsg">
         <div class="row">
-            <div class="col-12">
-                <h1>Messagerie</h1>
-                <h2>Boite de reception</h2>
+            <div class="col-12 m-5">
+                <h3>Boite de reception</h3>
                 <p>Vous avez reçu {{ app.user.receiveduser|length }} messages</p>
             </div>
 
-            <div class="col-4">De</div>
-            <div class="col-4">Date</div>
-            <div class="col-4">Actions</div>
+            <div class="col-4 text-center my-3 fw-bold">De</div>
+            <div class="col-4 text-center my-3 fw-bold">Date</div>
+            <div class="col-3 text-center my-3 fw-bold">Actions</div>
             {% for message in app.user.receiveduser %}
                 {% if message.isRead == 0 %}
                     {% set bold = "fw-bold" %}
                 {% else %}
                     {% set bold = "" %}
                 {% endif %}
-                <div class="col-4 {{ bold }}">{{ message.sender.email }}</div>
-                <div class="col-4 {{ bold }}">{{ message.createdAt|date }}</div>
-                <div class="col-4 {{ bold }}">{{ message.sender.email }}</div>
-                <a href="{{  path("read", {id:message.id}) }}">voir</a>
+                <div class="col-4 text-center {{ bold }}">{{ message.sender.email }}</div>
+                <div class="col-4 text-center {{ bold }}">{{ message.createdAt|date }}</div>
+                <input
+                        onclick="window.location.href = '{{  path("read", {id:message.id}) }}'"
+                        class="col-1 text-center btn-grad"
+                        type="button"
+                        value="Voir"
+                />
+
+
             {% endfor %}
 
-            <div class="col">
-                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                   aria-controls="offcanvasExample">
-                    Voir mes dossiers
-                </a>
-                <a href="{{ path("send") }}" class="btn btn-primary">Envoyer un message</a>
+            <div class="d-flex justify-content-center m-5">
+
+                <input
+                        onclick="window.location.href = '{{ path('send') }}'"
+                        class="btn-grad"
+                        type="button"
+                        value="Envoyer un message"
+                />
+                <input
+                        onclick="window.location.href = '{{ path('user_info_track', {'id': app.user.id}) }}'"
+                        class="btn-grad"
+                        type="button"
+                        value="Retour"
+                />
+
             </div>
         </div>
     </section>
 
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="list-group">
-                <a href="{{ path("messages") }}" class="list-group-item list-group-item-action">Acceuil</a>
-            </div>
-            <div class="list-group">
-                <a href="{{ path("received") }}" class="list-group-item list-group-item-action active">Boite de
-                    reception</a>
-            </div>
-            <div class="list-group">
-                <a href="{{ path("sent") }}" class="list-group-item list-group-item-action">Elements envoyés</a>
-            </div>
 
-        </div>
-    </div>
 {% endblock %}
