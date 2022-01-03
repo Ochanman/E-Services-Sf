@@ -107,7 +107,7 @@ class UserInfoController extends AbstractController
      * @Route("/user/info/track/{id}", name="user_info_track")
      */
     //  je créé une methose qui fait appel BookRepository et EntityManagerInterface
-    public function productTrack($id, Messages $message, Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher)
+    public function productTrack($id, Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher)
     {
         // je mets dans une variable le contenu d'un book avec l id de recuperé dans l'url via la methode
         // find de la classe $bookRepository

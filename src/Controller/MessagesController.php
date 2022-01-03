@@ -32,7 +32,7 @@ class MessagesController extends AbstractController
             // cette classe permet de génèrer et éxecuter la requête SQL
             $entityManager->flush();
             $this->addFlash("message", "Message envoyé avec succés.");
-            return $this->redirectToRoute("messages");
+            return $this->redirectToRoute("user_info_track", ['id' => $message->getId()]);
         }
 
         return $this->render("messages/send.html.twig", [
