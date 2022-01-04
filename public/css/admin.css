@@ -15,12 +15,12 @@ body {
   font-family: "Valera Round";
 
 }
-.flex {
+.flex, .flexadmin{
   display: flex;
 }
 .logo {
   width: 10%;
-  margin-right: 10%;
+
 }
 .logoES {
   width: 100%;
@@ -30,10 +30,10 @@ header {
   position: fixed;
   height: 10vh;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
   
-  padding-top: 20px;
+  padding: 20px 0;
   background-color: rgb(218,214,243);
   top: 0;
   left: 0;
@@ -69,8 +69,15 @@ header {
   color: white;
 }
 /* SEPARATION DES ELEMENTS DU MENU PAR UN BORDER SAUF LE DERNIER */
-.main-menu .main-menu-element:not(:nth-last-child(-n + 2)) {
+.main-menu .main-menu-element:not(:nth-last-child(-n + 1)) {
   border-right: 1px solid black;
+}
+.btnConnect {
+  flex-direction: column;
+}
+.ident {
+  font-size: 0.8vw;
+  margin-top: 10px;
 }
 .btn-grad {
   background-image: linear-gradient(
@@ -81,14 +88,14 @@ header {
   );
 }
 .btn-grad {
-  margin-left: 100px;
-  font-size: 1vw;
+  margin: 0 auto;
+  font-size: 0.8vw;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  
+  cursor: pointer;
   border-radius: 10px;
   display: block;
   min-width: 120px;
@@ -107,11 +114,13 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+
 }
 
 .footer {
-  height: 40vh;
-  margin-top: 80px;
+
+  margin-top: 14vh;
 }
 
 
@@ -124,7 +133,7 @@ header {
   
 }
 .logoFooter {
- width: 15vw;
+ width: 8vw;
  
 }
 .imgLogoFooter {
@@ -143,25 +152,12 @@ header {
 }
 
 
-.footerMenu {
-  justify-content: center;
-  margin-top: 2%;
-}
-.footerMenu li:not(:last-child) {
-  border-right: 1px solid black;
-}
-
-.footerMenu li a {
-  color: black;
-  font-weight: lighter;
-  padding: 0 0.5rem;
-}
 .contentContact h3 {
-  font-size: 1.2rem;
+  font-size: 1vw;
 }
 .contentContact span,
 a {
-  font-size: 0.8rem;
+  font-size: 0.8vw;
   color: black;
 }
 .contentContact span {
@@ -185,22 +181,22 @@ a {
   grid-area: a;
   margin: 20px;
 }
+.headSection p {
+  margin: 20px;
+}
 .divSearch {
   grid-area: b;
   font-weight: bold;
 }
 .link1 {
   grid-area: c;
-  font-size: 1.17em;
-  font-weight: bold;
-  color: #a399e0;
-    margin: 40px;
+max-width: 8vw;
+justify-self: center;
 
 }
-.link1:hover {
-  transform: scale(1.1);
-}
-.link2, .link3 {
+
+
+.link1, .link2, .link3 {
   font-size: 1.17em;
   font-weight: bold;
   color: #a399e0;
@@ -209,7 +205,7 @@ a {
 border-radius: 15px;
   padding: 0 5px;
 }
-.link2:hover, .link3:hover {
+.link1:hover, .link2:hover, .link3:hover {
   border: 1px solid white;
   color: white;
   background-color: #a399e0;
@@ -223,8 +219,9 @@ border-radius: 15px;
   grid-template-areas:
     "a a a"
     "b b b"
-    "c . .";
+    ". c .";
 }
+
 .tutotop h2 {
   grid-area: a;
   margin: 20px;
@@ -241,6 +238,18 @@ border-radius: 15px;
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+  margin-top: 20px;
+}
+.titleSection {
+  margin-top: 25vh;
+
+}
+.titleSection h2 {
+  text-align: center;
+  color: rgba(163, 153, 224)
+}
+.titleSection p {
+  margin-left: 20vw;
 }
 .contentbox {
   
@@ -263,6 +272,7 @@ border-radius: 15px;
 .headSection h2, h3 {
   color: rgba(163, 153, 224)
 }
+
 
 
 /********* track*******/
@@ -327,11 +337,27 @@ flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
+.blockMsg {
+  margin-top: 25vh;
+}
 .trackMsg {
+  flex-direction: column;
   grid-area: i;
-  border: 1px solid black;
   text-align: start;
+}
+.msgTitle {
+  margin: 5px;
+}
+.msgData {
+  margin: 10px 10px;
+}
+.msgLink {
+flex-direction: column;
+justify-content: space-between;
+}
+.msgLink a {
+  margin: 2px 10px;
+  border: 1px solid black;
 }
 .dot {
   width: 32px;
@@ -367,7 +393,7 @@ td {
 }
 .table {
  width: 80vw;
-  margin: 0 auto;
+  margin: 8vh auto;
   border: 1px solid black;
 }
 .TrackAdmin:nth-child(odd) {
@@ -385,17 +411,19 @@ td {
 }
 .btn-gradManage {
 
-  font-size: 1vw;
+  font-size: 0.8vw;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-
   border-radius: 10px;
-
   min-width: 120px;
-  height: 30px;
+  height: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 5px;
+  cursor: pointer;
 }
 
 .btn-gradManage:hover {
@@ -405,4 +433,144 @@ td {
 .divBtn {
   text-align: center;
 }
+.contentMsg {
+  margin: 0 auto;
+}
 /* ******* end track admin ******** */
+/* ******* bootstrap ******** */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.input-group {
+  position: relative;
+  display: flex;
+  margin: 30px;
+  align-items: stretch;
+  width: 100%;
+}
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+.container {
+  width: 100%;
+ margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
+.col-1 {
+  flex: 0 0 auto;
+  width: 8.33333333%;
+}
+
+.col-2 {
+  flex: 0 0 auto;
+  width: 16.66666667%;
+}
+
+.col-3 {
+  flex: 0 0 auto;
+  width: 25%;
+}
+
+.col-4 {
+  flex: 0 0 auto;
+  width: 33.33333333%;
+}
+
+.col-5 {
+  flex: 0 0 auto;
+  width: 41.66666667%;
+}
+
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.col-7 {
+  flex: 0 0 auto;
+  width: 58.33333333%;
+}
+
+.col-8 {
+  flex: 0 0 auto;
+  width: 66.66666667%;
+}
+
+.col-9 {
+  flex: 0 0 auto;
+  width: 75%;
+}
+
+.col-10 {
+  flex: 0 0 auto;
+  width: 83.33333333%;
+}
+
+.col-11 {
+  flex: 0 0 auto;
+  width: 91.66666667%;
+}
+
+.col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.m-5 {
+  margin: 3rem !important;
+}
+.my-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+.fw-bold {
+  font-weight: 700 !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+/* ******* end bootstrap ******** */

@@ -1,22 +1,28 @@
+<section class="titleSection">
+    <h2>TUTOS</h2>
+    <p>
+        Gestion de nos tutos
+    </p>
 <div class="form">
     {{ form_start(tutoForm) }}
     <div class="input-group mb-3">
-        <span id="addon-wrapping">{{ form_label(tutoForm.title, 'title', {'label_attr': {'class': 'input-group-text'}}) }}</span>
-        {{ form_widget(tutoForm.title, {'attr': {'class': 'form-control', 'placeholder': 'title', 'aria-label': 'title', 'aria-describedby': 'basic-addon2'}}) }}
+        <span id="addon-wrapping">{{ form_label(tutoForm.title, 'Titre', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+        {{ form_widget(tutoForm.title, {'attr': {'class': 'form-control'}}) }}
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group">
         {{ form_widget(tutoForm.file_name, {'attr': {'class': 'form-control', 'placeholder': 'image', 'aria-label': 'image', 'aria-describedby': 'addon-wrapping'}}) }}
-        <span id="addon-wrapping">{{ form_label(tutoForm.file_name, 'image', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+        <span id="addon-wrapping">{{ form_label(tutoForm.file_name, 'Image', {'label_attr': {'class': 'input-group-text'}}) }}</span>
     </div>
     <div class="input-group mb-3">
-        <span id="addon-wrapping">{{ form_label(tutoForm.path_video, 'lien youtube', {'label_attr': {'class': 'input-group-text'}}) }}</span>
-        {{ form_widget(tutoForm.path_video, {'attr': {'class': 'form-control', 'placeholder': 'lien youtube', 'aria-label': 'lien youtube', 'aria-describedby': 'basic-addon2'}}) }}
+        <span id="addon-wrapping">{{ form_label(tutoForm.path_video, 'Lien youtube', {'label_attr': {'class': 'input-group-text'}}) }}</span>
+        {{ form_widget(tutoForm.path_video, {'attr': {'class': 'form-control'}}) }}
     </div>
 
 
 
     <div class="col-12">
-        <button class="btn-primary" type="submit">Valider</button>
+        <button class="btn-grad" type="submit">Valider</button>
     </div>
     {{ form_end(tutoForm) }}
 </div>
+</section>

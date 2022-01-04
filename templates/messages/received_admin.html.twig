@@ -1,44 +1,52 @@
 {% extends 'admin/base.html.twig' %}
-{% block css %}
-    {{ parent() }}
-    <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-            crossorigin="anonymous"
-    />
-{% endblock css %}
+
 {% block title %}Hello MessagesController!{% endblock %}
 
 {% block main %}
     <section class="flex container blockMsg">
-        <div class="row">
+        <div class="contentMsg">
             <div class="col-12 m-5">
                 <h3>Boite de reception</h3>
                 <p>Vous avez reçu {{ app.user.received|length }} messages</p>
             </div>
 
-            <div class="col-4 text-center my-3 fw-bold">De</div>
-            <div class="col-4 text-center my-3 fw-bold">Date</div>
-            <div class="col-3 text-center my-3 fw-bold">Actions</div>
-            {% for message in app.user.received %}
-                {% if message.isRead == 0 %}
-                    {% set bold = "fw-bold" %}
-                {% else %}
-                    {% set bold = "" %}
-                {% endif %}
-                <div class="col-4 text-center {{ bold }}">{{ message.sender.email }}</div>
-                <div class="col-4 text-center {{ bold }}">{{ message.createdAt|date }}</div>
-                <input
-                        onclick="window.location.href = '{{  path("read_received_admin", {id:message.id}) }}'"
-                        class="col-1 text-center btn-grad"
-                        type="button"
-                        value="Voir"
-                />
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col fw-bold">De</th>
+                    <th scope="col fw-bold">Date</th>
+                    <th scope="col fw-bold">Actions</th>
+                </tr>
+                </thead>
+
+                <tbody>
 
 
-            {% endfor %}
+                {% for message in app.user.received %}
+                    {% if message.isRead == 0 %}
+                        {% set bold = "fw-bold" %}
+                    {% else %}
+                        {% set bold = "" %}
+                    {% endif %}
 
+
+                    <tr class="TrackAdmin">
+
+
+                        <td class="{{ bold }}">{{ message.sender.email }}</td>
+                        <td class="{{ bold }}">{{ message.createdAt|date }}</td>
+                        <td><input
+                                    onclick="window.location.href = '{{ path("read_received_admin", {id:message.id}) }}'"
+                                    class="col-1 text-center btn-grad"
+                                    type="button"
+                                    value="Voir"
+                            /></td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
             <div class="d-flex justify-content-center m-5">
 
                 <input
@@ -56,8 +64,9 @@
 
             </div>
         </div>
+
     </section>
 
 
 
-{% endblock %}
+{% endblock main %}

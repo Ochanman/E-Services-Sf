@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% block css %}
         <link href="{{ asset('css/admin.css') }}" type="text/css" rel="stylesheet">
     {% endblock css %}
@@ -15,7 +15,7 @@
     <title>E-Services</title>
 </head>
 <body>
-<header class="flex">
+<header class="flexadmin">
     <div class="logo">
         <img
                 class="logoES"
@@ -24,8 +24,8 @@
         />
     </div>
 
-    <nav class="flex navigation">
-        <ul class="flex main-menu">
+    <nav class="flexadmin navigation">
+        <ul class="flexadmin main-menu">
             <li class="main-menu-element">
                 <a href="{{ path('admin_home') }}">ACCUEIL</a>
             </li>
@@ -35,34 +35,38 @@
             <li class="main-menu-element">
                 <a href="{{ path('admin_tutos') }}">TUTOS</a>
             </li>
-            <input
-                    onclick="window.location.href = '{{ path('app_logout') }}'"
-                    class="btn-grad"
-                    type="button"
-                    value="SE DECONNECTER"
-            />
 
         </ul>
     </nav>
-    <div class="flex trackMsg">
+    <div class="flexadmin btnConnect">
+        <input
+                onclick="window.location.href = '{{ path('app_logout') }}'"
+                class="btn-grad"
+                type="button"
+                value="SE DECONNECTER"
+        />
+        <div class="ident"><span>Connecté en tant que: </span> {{ app.user.email }}</div>
+    </div>
+    <div class="flexadmin trackMsg">
 
 
         <div class="msgTitle">
             <h3>Votre messagerie</h3>
         </div>
-        <div class="flex trackMsgContent">
+        <div class="flexadmin trackMsgContent">
             <div class="msgData">
                 <p>reçus : {{ app.user.received|length }}</p>
                 <p>Envoyés : {{ app.user.sent|length }}</p>
             </div>
-            <div class="msgLink">
+            <div class="flexadmin msgLink">
 
-                <a href="{{ path("received_admin", {'id': app.user.id}) }}" class="btn-grad">Boite de reception</a>
+                <a href="{{ path("received_admin", {'id': app.user.id}) }}" class="btn-gradManage">Boite de
+                    reception</a>
 
 
-                <a href="{{ path("sent_admin") }}" class="btn-grad">Elements envoyés</a>
+                <a href="{{ path("sent_admin") }}" class="btn-gradManage">Elements envoyés</a>
 
-                <a href="{{ path("send_admin") }}" class="btn-grad">Envoyer un message</a>
+                <a href="{{ path("send_admin") }}" class="btn-gradManage">Envoyer un message</a>
             </div>
         </div>
 
@@ -71,8 +75,7 @@
 </header>
 
 
-
-    {% block main %}{% endblock main %}
+{% block main %}{% endblock main %}
 
 
 {% for message in app.flashes('success') %}
@@ -82,18 +85,17 @@
 {% endfor %}
 <footer class="footer">
 
-    <div class="flex contentFooter">
-        <div class="logoFooter flex">
-            <img class="imgLogoFooter" src="{{ asset('img/logo/logo_small.png') }}" alt="logo entreprise" />
+    <div class="flexadmin contentFooter">
+        <div class="logoFooter flexadmin">
+            <img class="imgLogoFooter" src="{{ asset('img/logo/logo_small.png') }}" alt="logo entreprise"/>
         </div>
-        <div class="flex contentContact">
-            <h3>CONTACTEZ-NOUS</h3>
+        <div class="flexadmin contentContact">
+            <h3>CONTACTEZ VOTRE ADMINISTRATEUR</h3>
             <span
-            >Nous serions ravis d'échanger avec vous autour de vos enjeux<br />et
-            vos problématiques.</span
+            >En cas de problèmes, contactez votre administrateur</span
             >
-            <span>david.godignon@eservices.fr <br />06 00 00 00 00 </span
-            ><a href="#">formulaire de contact</a>
+            <span>support@e-services.fr <br/>06 00 00 00 00 </span
+            >
         </div>
     </div>
 </footer>
