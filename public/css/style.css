@@ -166,7 +166,7 @@ main {
 }
 .article {
   justify-content: center;
-  margin: 40px;
+  margin: 100px;
 }
 .titleImg {
   width: 40%;
@@ -185,7 +185,7 @@ main {
 #content {
   width: 100%;
   height: 50vh;
-  margin: 40px;
+  margin: 100px;
 }
 
 .bannerR {
@@ -314,7 +314,7 @@ main {
   justify-content: end;
   background-size: cover;
   flex-direction: column;
-
+margin: 100px;
   text-align: center;
 }
 .follow h2 {
