@@ -339,6 +339,7 @@ flex-direction: column;
 }
 .blockMsg {
   margin-top: 25vh;
+
 }
 .trackMsg {
   flex-direction: column;
@@ -433,10 +434,30 @@ td {
 .divBtn {
   text-align: center;
 }
+
+/* ******* end track admin ******** */
+
+/* ******* Msg ******** */
+
 .contentMsg {
   margin: 0 auto;
 }
-/* ******* end track admin ******** */
+.contentReadMsg {
+  margin: 0 auto;
+  min-width: 50vw;
+  max-width: 50vw;
+}
+
+.contentMsgH3 {
+  margin: 20px 10px 40px;
+  justify-content: start;
+}
+.msg {
+  margin: 10vh;
+  justify-content: center;
+}
+/* ******* end Msg ******** */
+
 /* ******* bootstrap ******** */
 .form-control {
   display: block;
@@ -557,6 +578,10 @@ td {
 .my-3 {
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
+}
+.my-5 {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
 }
 .fw-bold {
   font-weight: 700 !important;
