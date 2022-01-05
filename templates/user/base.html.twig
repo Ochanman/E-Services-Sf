@@ -35,17 +35,18 @@
             <li class="main-menu-element">
                 <a href="{{ path('user_declare', {'id': app.user.id}) }}">DECLARER PANNE</a>
             </li>
-            <div class="flex btnConnect">
-                <input
-                        onclick="window.location.href = '{{ path('app_logout') }}'"
-                        class="btn-grad"
-                        type="button"
-                        value="SE DECONNECTER"
-                />
-                <div><span class="ident">Vous êtes connectez en tant que: </span> {{ app.user.lastname }} {{ app.user.firstname }}</div>
-            </div>
+
         </ul>
     </nav>
+    <div class="flex btnConnect">
+        <input
+                onclick="window.location.href = '{{ path('app_logout') }}'"
+                class="btn-grad"
+                type="button"
+                value="SE DECONNECTER"
+        />
+        <div><span class="ident">Connecté en tant que: </span> {{ app.user.lastname }} {{ app.user.firstname }}</div>
+    </div>
 </header>
 
 

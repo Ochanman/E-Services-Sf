@@ -1,21 +1,12 @@
 {% extends 'admin/base.html.twig' %}
-{% block css %}
-    {{ parent() }}
-<link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-        crossorigin="anonymous"
-/>
-{% endblock css %}
+
 {% block main %}
     <section class="tutotop">
-        <h2>Suivi de ma réparation</h2>
+        <h2>Gestion des dossiers</h2>
         <p>
-            E-Services vous permet de suivre toutes les étapes de la réparation
-            de votre appareil
+            Gerer toutes les étapes de la réparation
         </p>
-        <h3>Mes demandes</h3>
+        <h3>Les demandes</h3>
     </section>
     <main>
 
@@ -47,6 +38,7 @@
                         <div class="trackPhoneWarranty">Garantie {{ form_widget(statusForm.warranty_status) }}</div>
                     </div>
                     {% block track %}
+                        {% if product.event == null %}  {% include "admin/_event_null.html.twig" %} {% endif %}
                         {% if product.event == 'request_check' %}  {% include "admin/_event_request_check.html.twig" %} {% endif %}
                         {% if product.event == 'received' %}  {% include "admin/_event_received.html.twig" %} {% endif %}
                         {% if product.event == 'repair' %}  {% include "admin/_event_repair.html.twig" %} {% endif %}
@@ -58,11 +50,8 @@
 
 
 
-                    <div class="trackMsg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-                        culpa eos expedita? Suscipit praesentium culpa ipsam ullam ab,
-                        corrupti aut asperiores? Exercitationem necessitatibus voluptatum
-                        deserunt consectetur odit quisquam sed expedita.
+                    <div>
+                        {{ form_end(statusForm) }}
                     </div>
 
                 </div>

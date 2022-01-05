@@ -27,14 +27,14 @@ body {
   width: 100%;
 }
 header {
-  padding: 0 5%;
+
   position: fixed;
   height: 20vh;
   align-items: center;
   justify-content: center;
   width: 100%;
   background-color: white;
-  padding-top: 10px;
+
   content: "";
   top: 0;
   left: 0;
@@ -46,7 +46,7 @@ header {
 
 .navigation {
   margin-left: 5%;
-  width: 70%;
+
 }
 .main-menu {
   justify-content: end;
@@ -468,12 +468,12 @@ a {
 /********* track*******/
 
 .track {
-  margin: 5% 0 10%;
+  margin: 4vh 0 10vh;
 }
 .contentTrack {
 
   width: 60%;
-  height: 80vh;
+  height: 70vh;
   margin: 0 auto;
   border: 1px solid black;
   text-align: center;
@@ -485,7 +485,7 @@ a {
     "d d d"
     "e f g"
     "h h h"
-    "h h h"
+    "i i i"
     "i i i";
 }
 

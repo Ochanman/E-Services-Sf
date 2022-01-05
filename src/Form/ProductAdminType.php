@@ -38,8 +38,8 @@ class ProductAdminType extends AbstractType
             ])
             ->add('event', ChoiceType::class, [
                 'choices' => [
-                    'Utilisateur' => 'request_check',
-                    'Administrateur' => 'received',
+                    'Demande validée' => 'request_check',
+                    'Appareil reçu' => 'received',
                     'Remise en état' => 'repair',
                     'Appareil réparé' => 'repair_finished',
                     'Appareil envoyé' => 'send',

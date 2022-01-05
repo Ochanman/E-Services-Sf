@@ -17,10 +17,9 @@ body {
     object-fit: cover;
 }
 
-form {
+.form {
     background-color: rgba(163, 153, 224, 0.4);
     width: 30vw;
-    height: 30vh;
     padding: 20px;
     border-radius: 15px;
 }
