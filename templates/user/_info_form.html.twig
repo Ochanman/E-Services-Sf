@@ -39,7 +39,7 @@
 
     <div class="input-group mb-3">
         {{ form_widget(infoForm.password, {'attr': {'class': 'form-control', 'name': 'password', 'placeholder': 'password', 'aria-label': 'password', 'aria-describedby': 'basic-addon2', 'type': 'password'}}) }}
-        <span id="addon-wrapping">{{ form_label(infoForm.password, 'Password', {'label_attr': {'class': 'input-group-text',}}) }}</span>
+        <span type="password" id="password" name="password">{{ form_label(infoForm.password, 'Password', {'label_attr': {'type': 'password','id': 'password', 'name': 'password', 'class': 'input-group-text'}}) }}</span>
     </div>
 
 

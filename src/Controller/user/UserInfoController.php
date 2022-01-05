@@ -23,7 +23,7 @@ class UserInfoController extends AbstractController
      *@Route("/create_info", name="user_create_info")
      */
 
-    public function createUser(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, UserPasswordHasherInterface $passwordHasher)
+    public function createUser(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, UserPasswordHasherInterface $passwordHasher, UserRepository $userRepository)
     {
         //je crée une instance de mon entity Book dans ma variable $book
         $user = new User();
@@ -35,23 +35,31 @@ class UserInfoController extends AbstractController
         $form->handleRequest($request);
 
         //  avec la methode isSubmitted je verifie si le formulaire a été soumis et avec la methode isValid verifie sa validité
-        if ($form->isSubmitted() && $form->isValid()) {
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $mail = $user->getEmail();
+            $email = $userRepository->findOneBy(array('email' => $mail));
+            if (is_null($email)) {
+                $user->setRoles(["ROLE_USER"]);
+                //  je vais chercher les informations de password et plus precisement les données
+                $plaintextPassword = $form->get('password')->getData();
+                $hashedPassword = $passwordHasher->hashPassword(
+                    $user,
+                    $plaintextPassword
+                );
+                $user->setPassword($hashedPassword);
 
-            $user->setRoles(["ROLE_USER"]);
-        //  je vais chercher les informations de password et plus precisement les données
-            $plaintextPassword = $form->get('password')->getData();
-            $hashedPassword = $passwordHasher->hashPassword(
-                $user,
-                $plaintextPassword
-            );
-            $user->setPassword($hashedPassword);
+                // cette classe permet de préparer sa sauvegarde en bdd
+                $entityManager->persist($user);
 
-            // cette classe permet de préparer sa sauvegarde en bdd
-            $entityManager->persist($user);
+                // cette classe permet de génèrer et éxecuter la requête SQL
+                $entityManager->flush();
+                $this->addFlash('success', "Votre compte a été créé avec succès !");
+            }
+            else {
+                $this->addFlash('success', "Un compte existe déjà avec cet email!");
+            }
 
-            // cette classe permet de génèrer et éxecuter la requête SQL
-            $entityManager->flush();
-            $this->addFlash('success', "Vos informations ont bien été enregistré!");
         }
 
         // je renvoie le formulaire créé mis en forme via la methode render sur la page admin/book_create.html.twig
