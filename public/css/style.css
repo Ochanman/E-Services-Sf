@@ -603,7 +603,6 @@ main {
 .trackMsg {
     grid-area: i;
     border: 1px solid black;
-    text-align: start;
     flex-direction: column;
     text-align: center;
 }
