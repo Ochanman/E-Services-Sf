@@ -4,12 +4,11 @@ namespace App\Controller\user;
 use App\Repository\TutoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface;
+
 class UserPageController extends AbstractController
 {
     /**
-     * je crée une page racine qui porte le nom "home"
+     * je crée une page qui porte le nom "user_home"
      * @Route("/user", name="user_home")
      */
     public function home(TutoRepository $tutoRepository)
@@ -23,7 +22,7 @@ class UserPageController extends AbstractController
     }
 
     /**
-     * je crée une page racine qui porte le nom "home"
+     * je crée une page /user/tutos qui porte le nom "user_tutos"
      * @Route("/user/tutos", name="user_tutos")
      */
     public function showTutos(TutoRepository $tutoRepository)

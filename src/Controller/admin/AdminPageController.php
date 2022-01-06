@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminPageController extends AbstractController
 {
     /**
-     * je crée une page racine qui porte le nom "home"
+     * je crée une page racine qui porte le nom "admin_home"
      * @Route("/admin", name="admin_home")
      */
     public function Showproducts(ProductRepository $productRepository)

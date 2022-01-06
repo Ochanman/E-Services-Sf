@@ -30,7 +30,6 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        # à dupliquer
         main:
             logout:
                 path: app_logout

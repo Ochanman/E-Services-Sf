@@ -46,22 +46,24 @@ class UserDeclareController extends AbstractController
                     $newFilename
                 );
 
-                // 5) enregistrer le nom du fichier dans la colonne coverFilename
+                // 5) enregistrer le nom du fichier dans la colonne Warranty
                 $declare->setWarranty($newFilename);
             }
 
-            // faire une requête dans la table des pannes, pour récupérer la dernière panne7
+            // faire une requête dans la table des pannes, pour récupérer la dernière panne
             $lastfailure = $ProductRepository->findOneBy([], ['id' => 'DESC']);
             // si y'en a pas, tu créé le numero ($number) de la première panne à la main str_pad (000001)
             if (!$lastfailure) {
 
                 $number =str_pad(1, 6, "0", STR_PAD_LEFT);
+
+                // sinon tu récupère le numéro de la dernière panne, tu l'incrémente de 1 : $number
             } else {
                 $number = (int)$lastfailure->getNumber();
                 $number += 1;
                 $number =str_pad($number, 6, "0", STR_PAD_LEFT);
             }
-            // sinon tu récupère le numéro de la dernière panne, tu l'incrémente de 1 : $number
+
 
             // tu ajoutes à ta panne le numéro
             $declare->setNumber($number);
@@ -75,7 +77,7 @@ class UserDeclareController extends AbstractController
             $this->addFlash('success', "Votre demande a bien été prise en compte!");
         }
 
-        // je renvoie le formulaire créé mis en forme via la methode render sur la page admin/book_create.html.twig
+        // je renvoie le formulaire créé via la methode render sur la page user/declare_create.html.twig
         return $this->render("user/declare_create.html.twig", [
             'declareForm' => $form->createView()
         ]);

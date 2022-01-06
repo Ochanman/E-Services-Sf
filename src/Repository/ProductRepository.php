@@ -48,14 +48,14 @@ class ProductRepository extends ServiceEntityRepository
     }
     */
 
-    // je créé la methode searchByTitle pour faire la requete sql en prenant la variable $word qui est
+    // je créé la methode searchByNumber pour faire la requete sql en prenant la variable $word qui est
     // le resultat de l'input "q"
     public function searchByNumber($word) {
 
 
         // je demande à Doctrine de créer une requête SQL
-        // qui fait une requête SELECT sur la table book
-        // à condition que le titre du book
+        // qui fait une requête SELECT sur la table product
+        // à condition que le number du product
         // contiennent le contenu de $word (à un endroit ou à un autre, grâce à LIKE %xxxx%)
         $queryBuilder = $this->createQueryBuilder('product');
 

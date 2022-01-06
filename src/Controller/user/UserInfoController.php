@@ -2,13 +2,12 @@
 
 namespace App\Controller\user;
 
-use App\Entity\Messages;
-use App\Entity\Product;
+
 
 use App\Entity\User;
 use App\Form\UserType;
 
-use App\Repository\ProductRepository;
+
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,10 +24,10 @@ class UserInfoController extends AbstractController
 
     public function createUser(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, UserPasswordHasherInterface $passwordHasher, UserRepository $userRepository)
     {
-        //je crée une instance de mon entity Book dans ma variable $book
+        //je crée une instance de mon entity User dans ma variable $user
         $user = new User();
         // j'utilise la methode creatForm de la classe AbstractController pour que symfony créé un formulaire
-        // par rapport à $Book
+        // par rapport à $user
         $form = $this->createForm(UserType::class, $user);
 
         // avec la methode handleRequest j'associe le formulaire à $request
@@ -62,7 +61,7 @@ class UserInfoController extends AbstractController
 
         }
 
-        // je renvoie le formulaire créé mis en forme via la methode render sur la page admin/book_create.html.twig
+        // je renvoie le formulaire créé via la methode render sur la page user/info_create.html.twig
         return $this->render("user/info_create.html.twig", [
             'infoForm' => $form->createView()
         ]);
@@ -73,14 +72,14 @@ class UserInfoController extends AbstractController
     }
 
     /**
-     * je crée une page update avec un id qui porte le nom "book_update"
+     * je crée une page /user/info/update/ avec un id qui porte le nom "user_info_update"
      * @Route("/user/info/update/{id}", name="user_info_update")
      */
-    //  je créé une methose qui fait appel BookRepository et EntityManagerInterface
+    //  je créé une methose qui fait appel UserRepository, Request,UserPasswordHasherInterface et EntityManagerInterface
     public function userUpdate($id, Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher)
     {
-        // je mets dans une variable le contenu d'un book avec l id de recuperé dans l'url via la methode
-        // find de la classe $bookRepository
+        // je mets dans une variable le contenu d'un User avec l id de recuperé dans l'url via la methode
+        // find de la classe UserRepository
         $user = $userRepository->find($id);
         $form = $this->createForm(UserType::class, $user);
 
@@ -103,7 +102,7 @@ class UserInfoController extends AbstractController
             $this->addFlash('success', "Vos compte a bien été modifié!");
         }
 
-        // je renvoie le formulaire créé mis en forme via la methode render sur la page admin/book_create.html.twig
+        // je renvoie le formulaire créé via la methode render sur la page user/info_update.html.twig
         return $this->render("user/info_update.html.twig", [
             'infoForm' => $form->createView()
         ]);
@@ -111,23 +110,19 @@ class UserInfoController extends AbstractController
     }
 
     /**
-     * je crée une page update avec un id qui porte le nom "book_update"
+     * je crée une page /user/info/track/ avec un id qui porte le nom "user_info_track"
      * @Route("/user/info/track/{id}", name="user_info_track")
      */
-    //  je créé une methose qui fait appel BookRepository et EntityManagerInterface
+    //  je créé une methose qui fait appel UserPasswordHasherInterface, Request et EntityManagerInterface
     public function productTrack($id, Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher)
     {
-        // je mets dans une variable le contenu d'un book avec l id de recuperé dans l'url via la methode
-        // find de la classe $bookRepository
-
-
-
-
+        // je mets dans une variable le contenu du User connecté via son getter
+        // je mets dans une variable le contenu des products associé a cet user
             $user = $this->getUser();
             $userProducts = $user -> getProduct();
 
 
-        // je renvoie le formulaire créé mis en forme via la methode render sur la page admin/book_create.html.twig
+        // je renvoie les données dans un tableau via la methode render sur la page user/user.track.html.twig
         return $this->render("user/user.track.html.twig",
             ["products" => $userProducts,
             "user" => $user]
