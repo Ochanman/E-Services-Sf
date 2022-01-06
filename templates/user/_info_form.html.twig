@@ -39,11 +39,13 @@
 
     <div class="input-group mb-3">
         {{ form_widget(infoForm.password, {'attr': {'class': 'form-control', 'name': 'password', 'placeholder': 'password', 'aria-label': 'password', 'aria-describedby': 'basic-addon2', 'type': 'password'}}) }}
-        <span type="password" id="password" name="password">{{ form_label(infoForm.password, 'Password', {'label_attr': {'type': 'password','id': 'password', 'name': 'password', 'class': 'input-group-text'}}) }}</span>
+        <span type="password" id="password"
+              name="password">{{ form_label(infoForm.password, 'Password', {'label_attr': {'type': 'password','id': 'password', 'name': 'password', 'class': 'input-group-text'}}) }}</span>
     </div>
 
 
     <div class="col-12">
-        <button class="btn-primary" type="submit">Valider</button>
+        <button class="btn-grad" type="submit">Valider</button>
     </div>
-    {{ form_end(infoForm) }}
+</div>
+{{ form_end(infoForm) }}
