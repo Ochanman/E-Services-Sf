@@ -11,13 +11,13 @@
 
 {% block main %}
     <section class="flex container blockMsg">
-        <div class="row">
-            <div class="col-12 m-5">
-                <h3>Messagerie</h3>
+        <div class="contentReadMsg">
 
-                <p>Message de {{ message.senderadmin.email }}</p>
-                <p class="my-5">Le {{ message.createdAt|date }}</p>
-                <div>{{ message.message }}</div>
+            <h3 class="flex contentMsgH3">Messagerie</h3>
+
+            <p>Message de {{ message.senderadmin.email }}</p>
+            <p class="my-3">Le {{ message.createdAt|date }}</p>
+            <div class="flex msg">{{ message.message }}</div>
 
 
                 <div class="d-flex justify-content-center m-5">
