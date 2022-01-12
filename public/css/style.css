@@ -110,7 +110,7 @@ header {
     height: 30px;
     line-height: 32px;
     border: 1px solid black;
-
+    margin: 0 2px;
 }
 
 .btn-grad:hover {
@@ -399,8 +399,7 @@ main {
 }
 
 .footer {
-    height: 60vh;
-    margin-top: 40px;
+    margin-top: 35vh;
 }
 
 .imgFooter {
@@ -426,12 +425,12 @@ main {
 
     background-color: rgba(163, 153, 224, 0.4);
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0;
 
 }
 
 .logoFooter {
-    width: 17vw;
+    width: 10vw;
 
 }
 
@@ -463,7 +462,7 @@ main {
 }
 
 .contentContact span {
-    font-size: 1.2vw;
+    font-size: 1vw;
     color: black;
     margin-top: 1%;
 }
@@ -561,7 +560,9 @@ main {
     "i i i"
     "i i i";
 }
-
+.trackTopNumber {
+    font-weight: bold;
+}
 .flexTrack {
     display: flex;
     flex-direction: column;
@@ -730,7 +731,6 @@ main {
     }
 
     .btn-grad {
-        margin-left: 0;
         font-size: 1.4vw;
     }
 
